@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>KöTTBULLAR</title>
+  <title>KöTTBULLAR | The Official Website</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -21,6 +21,19 @@
     font-weight: 400;
   }
   .mySlides {display: none}
+
+  #arrowDown {
+    animation-name: arrow;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
+  }
+
+  @keyframes arrow {
+  0%   {padding-top: 0px;}
+  25%  {padding-top: 10px;}
+  50%  {padding-top: 0px;}
+  }
   </style>
 </head>
 <body>
@@ -28,10 +41,10 @@
 <!-- Navbar -->
 <div class="w3-bottom">
   <div class="w3-bar w3-black w3-card">
-    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-    <a href="#" class="w3-bar-item w3-button w3-padding-large">HOME</a>
-    <a href="#releases" class="w3-bar-item w3-button w3-padding-large w3-hide-small">RELEASES</a>
-    <a href="#tour" class="w3-bar-item w3-button w3-padding-large w3-hide-small">LIVE</a>
+    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-hide-small w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <!--<a href="#releases" class="w3-bar-item w3-button w3-padding-large w3-hide-small">RELEASES</a>-->
+    <!--<a href="#bio" class="w3-bar-item w3-button w3-padding-large">ABOUT US</a>-->
+    <!--<a href="#tour" class="w3-bar-item w3-button w3-padding-large w3-hide-small">LIVE</a>-->
     <!--<a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CONTACT</a>-->
     <!--<div class="w3-dropdown-hover w3-hide-small">
       <button class="w3-padding-large w3-button" title="More">MORE <i class="fa fa-caret-down"></i></button>     
@@ -41,14 +54,15 @@
         <a href="#" class="w3-bar-item w3-button">Media</a>
       </div>
     </div>-->
-    <span class="w3-padding-large w3-hover-red w3-hide-small w3-right">
-      <i class="fa fa-facebook-official w3-padding-small w3-hover-opacity"></i>
-      <i class="fa fa-instagram w3-padding-small w3-hover-opacity"></i>
-      <i class="fa fa-spotify w3-padding-small w3-hover-opacity"></i>
-      <i class="fa fa-apple w3-padding-small w3-hover-opacity"></i>
-      <i class="fa fa-amazon w3-padding-small w3-hover-opacity"></i>
-      <i class="fa fa-twitter w3-padding-small w3-hover-opacity"></i>
-      <i class="fa fa-envelope w3-padding-small w3-hover-opacity"></i>
+    <span class="w3-padding-large w3-hover-red w3-right">
+      <a href="https://www.instagram.com/kottbullar.music/" target="_blank"><i class="fa fa-instagram w3-padding-small w3-hover-opacity"></i></a>
+      <a href="https://www.facebook.com/people/K%C3%B6TTBULLAR/100088226469948/" target="_blank"><i class="fa fa-facebook w3-padding-small w3-hover-opacity"></i></a>
+      <a href="https://open.spotify.com/artist/0RkvwB5IWAviv0qhBsB3GW" target="_blank"><i class="fa fa-spotify w3-padding-small w3-hover-opacity"></i></a>
+      <a href="https://music.apple.com/de/artist/k%C3%B6ttbullar/1652984498" target="_blank"><i class="fa fa-apple w3-padding-small w3-hover-opacity"></i></a>
+      <a href="https://www.youtube.com/channel/UClygeOR7txwr3sTwhkuaAzw" target="_blank"><i class="fa fa-youtube w3-padding-small w3-hover-opacity"></i></a>
+      <a href="https://music.amazon.com.au/artists/B0BLHRP73H/k%C3%B6ttbullar" target="_blank"><i class="fa fa-amazon w3-padding-small w3-hover-opacity"></i></a>
+      <a href="https://soundcloud.com/user-531858927" target="_blank"><i class="fa fa-soundcloud w3-padding-small w3-hover-opacity"></i></a>
+      <a href="mailto:koettbullar.music@gmail.com" target="_blank"><i class="fa fa-envelope w3-padding-small w3-hover-opacity"></i></a>
     </span>
   </div>
 </div>
@@ -56,20 +70,25 @@
 <!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
 <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
   <a href="#releases" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">RELEASES</a>
-  <a href="#tour" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">LIVE</a>
+  <!--<a href="#bio" class="w3-bar-item w3-button w3-padding-large">ABOUT US</a>-->
+  <!--<a href="#tour" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">LIVE</a>-->
   <!--<a href="#contact" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">CONTACT</a>-->
   <!--<a href="#" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">MERCH</a>-->
 </div>
 
 <!-- Page content -->
-<div class="w3-content" style="max-width:2000px;margin-bottom:0">
+
+<!-- Logo -->
+<img src="/w3images/footer.jpg" class="w3-image w3-greyscale-min w3-hide-large w3-hide-medium" style="width:100%">
+
+<div class="w3-content" style="max-width:2000px;margin-bottom:0; background-image: url(w3images/tolex.jpg); color: white;">
 
   <!-- Automatic Slideshow Images -->
   <div class="mySlides w3-display-container w3-center">
     <img src="/w3images/slide-1.jpg" style="width:100%">
     <!--<div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-64 w3-hide-small">
-      <h3>Los Angeles</h3>
-      <p><b>We had the best time playing at Venice Beach!</b></p>   
+      <h3>Munich </h3>
+      <p><b>We had the best time playing at ...!</b></p>   
     </div>-->
   </div>
   <div class="mySlides w3-display-container w3-center">
@@ -79,13 +98,51 @@
     <img src="/w3images/slide-3.jpg" style="width:100%">
   </div>
 
-  <!--<div class="w3-display-container w3-center" style="color: white; margin-top: -140px;z-index: 10">
-    <a href="#releases" onclick="myFunction()"><span class="mainFont w3-wide" style="font-size: 32px;">LISTEN NOW</span><br><i style="color: white" class="fa fa-angle-down w3-center fa-4x"></i></a>
-  </div>-->
+  <!-- Arrow down -->
+  <div class="w3-display-container w3-center w3-hide-small w3-hide-medium" style="color: white; margin-top: -140px; height: 130px; z-index: 10">
+    <a href="#releases" style="text-decoration: none; text-shadow: 0px 0px 3px #0000003d;" onclick="myFunction()">
+      <span class="mainFont w3-wide" style="font-size: 32px;">LISTEN NOW</span><br>
+      <div id="arrowDown">
+        <i style="color: white" class="fa fa-angle-down w3-center fa-4x"></i>
+      </div>
+    </a>
+  </div>
 
-  <!-- The Band Section -->
-  <!--  <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="band">
-    <h2 class="w3-wide">THE BAND</h2>
+  <!-- Releases Section -->
+  <div class="w3-black" id="releases">
+    <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
+      <h2 class="w3-wide w3-center">LATEST RELEASES</h2>
+
+      <div class="w3-row-padding w3-padding-32" style="margin:0 -16px">
+        <div class="w3-half w3-margin-bottom">
+          <a href="https://onerpm.link/107532773978" target="_blank">
+            <img src="/w3images/covers/emily.jpeg" alt="Emily" style="width:100%" class="w3-hover-opacity">
+            <div class="w3-container w3-white">
+              <p><b>Emily</b></p>
+              <p class="w3-opacity">01 December 2022</p>
+              <!--<p><p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>-->
+              <button class="w3-button w3-black w3-margin-bottom">Listen now</button>
+            </div>
+          </a>
+        </div>
+        <div class="w3-half w3-margin-bottom">
+          <a href="https://onerpm.link/181167909441" target="_blank">
+            <img src="/w3images/covers/rooftop.jpeg" alt="Rooftop" style="width:100%" class="w3-hover-opacity">
+            <div class="w3-container w3-white">
+              <p><b>Rooftop</b></p>
+              <p class="w3-opacity">12 Januar 2023</p>
+              <!--<p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>-->
+              <button class="w3-button w3-black w3-margin-bottom">Listen now</button>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- The Band Section 
+<div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="bio">
+    <h2 class="w3-wide">ABOUT US</h2>
     <p class="w3-opacity"><i>We love music</i></p>
     <p class="w3-justify">We have created a fictional band website. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
       ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur
@@ -104,39 +161,9 @@
         <img src="/w3images/bandmember.jpg" class="w3-round" alt="Random Name" style="width:60%">
       </div>
     </div>
-  </div>
-  -->
+  </div>-->
 
-  <!-- Releases Section -->
-  <div class="w3-black" id="releases">
-    <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
-      <h2 class="w3-wide w3-center">LATEST RELEASES</h2>
-      <p class="w3-opacity w3-center"><i>Remember to book your tickets!</i></p><br>
-
-      <div class="w3-row-padding w3-padding-32" style="margin:0 -16px">
-        <div class="w3-third w3-margin-bottom">
-          <img src="/w3images/covers/emily.jpeg" alt="Emily" style="width:100%" class="w3-hover-opacity">
-          <div class="w3-container w3-white">
-            <p><b>Emily</b></p>
-            <p class="w3-opacity">01 December 2022</p>
-            <!--<p><p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>-->
-            <button class="w3-button w3-black w3-margin-bottom" onclick="document.getElementById('ticketModal').style.display='block'">Listen now</button>
-          </div>
-        </div>
-        <div class="w3-third w3-margin-bottom">
-          <img src="/w3images/covers/rooftop.jpeg" alt="Rooftop" style="width:100%" class="w3-hover-opacity">
-          <div class="w3-container w3-white">
-            <p><b>Rooftop</b></p>
-            <p class="w3-opacity">12 Januar 2023</p>
-            <!--<p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>-->
-            <button class="w3-button w3-black w3-margin-bottom" onclick="document.getElementById('ticketModal').style.display='block'">Listen now</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- The Tour Section -->
+  <!-- The Tour Section 
   <div class="w3-black" id="tour">
     <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
       <h2 class="w3-wide w3-center">LIVE DATES</h2>
@@ -176,7 +203,7 @@
       </div>
     </div>
   </div>
-  
+  -->
 
   <!-- Ticket Modal -->
   <!--<div id="ticketModal" class="w3-modal">
@@ -229,8 +256,8 @@
 <!-- End Page Content -->
 </div>
 
-<!-- Image of location/map -->
-<img src="/w3images/footer.jpg" class="w3-image w3-greyscale-min" style="width:100%">
+<!-- Logo -->
+<img src="/w3images/footer.jpg" class="w3-image w3-greyscale-min w3-hide-small" style="width:100%">
 
 <script>
 // Automatic Slideshow - change image every 4 seconds
