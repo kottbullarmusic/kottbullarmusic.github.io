@@ -29,6 +29,10 @@
     animation-timing-function: ease;
   }
 
+  .text-accent, .text-accent:hover {
+    color: rgba(235,246,170)!important;
+}
+
   @keyframes arrow {
   0%   {padding-top: 0px;}
   25%  {padding-top: 10px;}
@@ -41,10 +45,9 @@
 <!-- Navbar -->
 <div class="w3-bottom">
   <div class="w3-bar w3-black w3-card">
-    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-hide-small w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-    <!--<a href="#releases" class="w3-bar-item w3-button w3-padding-large w3-hide-small">RELEASES</a>-->
-    <!--<a href="#bio" class="w3-bar-item w3-button w3-padding-large">ABOUT US</a>-->
-    <!--<a href="#tour" class="w3-bar-item w3-button w3-padding-large w3-hide-small">LIVE</a>-->
+    <a href="#releases" class="w3-bar-item w3-button w3-padding-large w3-hide-small">RELEASES</a>
+    <a href="#bio" class="w3-bar-item w3-button w3-padding-large w3-hide-small">ABOUT US</a>
+    <!--<a href="#news" class="w3-bar-item w3-button w3-padding-large w3-hide-small">NEWS</a>-->
     <!--<a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CONTACT</a>-->
     <!--<div class="w3-dropdown-hover w3-hide-small">
       <button class="w3-padding-large w3-button" title="More">MORE <i class="fa fa-caret-down"></i></button>     
@@ -65,15 +68,6 @@
       <a href="mailto:koettbullar.music@gmail.com" target="_blank"><i class="fa fa-envelope w3-padding-small w3-hover-opacity"></i></a>
     </span>
   </div>
-</div>
-
-<!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
-<div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
-  <a href="#releases" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">RELEASES</a>
-  <!--<a href="#bio" class="w3-bar-item w3-button w3-padding-large">ABOUT US</a>-->
-  <!--<a href="#tour" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">LIVE</a>-->
-  <!--<a href="#contact" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">CONTACT</a>-->
-  <!--<a href="#" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">MERCH</a>-->
 </div>
 
 <!-- Page content -->
@@ -114,7 +108,7 @@
       <h2 class="w3-wide w3-center">LATEST RELEASES</h2>
 
       <div class="w3-row-padding w3-padding-32" style="margin:0 -16px">
-        <div class="w3-half w3-margin-bottom">
+        <div class="w3-third w3-margin-bottom">
           <a href="https://onerpm.link/107532773978" target="_blank">
             <img src="/w3images/covers/emily.jpeg" alt="Emily" style="width:100%" class="w3-hover-opacity">
             <div class="w3-container w3-white">
@@ -125,7 +119,7 @@
             </div>
           </a>
         </div>
-        <div class="w3-half w3-margin-bottom">
+        <div class="w3-third w3-margin-bottom">
           <a href="https://onerpm.link/181167909441" target="_blank">
             <img src="/w3images/covers/rooftop.jpeg" alt="Rooftop" style="width:100%" class="w3-hover-opacity">
             <div class="w3-container w3-white">
@@ -136,32 +130,34 @@
             </div>
           </a>
         </div>
+        <div class="w3-third w3-margin-bottom">
+          <a href="https://onerpm.link/275052288690" target="_blank">
+            <img src="/w3images/covers/alone.jpg" alt="Rooftop" style="width:100%" class="w3-hover-opacity">
+            <div class="w3-container w3-white">
+              <p><b>Alone</b></p>
+              <p class="w3-opacity">28 February 2023</p>
+              <!--<p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>-->
+              <button class="w3-button w3-black w3-margin-bottom">Listen now</button>
+            </div>
+          </a>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- The Band Section 
+  <!-- The Band Section -->
 <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="bio">
     <h2 class="w3-wide">ABOUT US</h2>
-    <p class="w3-opacity"><i>We love music</i></p>
-    <p class="w3-justify">We have created a fictional band website. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-      ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur
-      adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-    <div class="w3-row w3-padding-32">
-      <div class="w3-third">
-        <p>Name</p>
-        <img src="/w3images/bandmember.jpg" class="w3-round w3-margin-bottom" alt="Random Name" style="width:60%">
-      </div>
-      <div class="w3-third">
-        <p>Name</p>
-        <img src="/w3images/bandmember.jpg" class="w3-round w3-margin-bottom" alt="Random Name" style="width:60%">
-      </div>
-      <div class="w3-third">
-        <p>Name</p>
-        <img src="/w3images/bandmember.jpg" class="w3-round" alt="Random Name" style="width:60%">
-      </div>
-    </div>
-  </div>-->
+    <p class="w3-opacity"><i>Get ready to rock with KöTTBULLAR, the indie band hailing from Munich!</i></p>
+    <p class="w3-justify">
+    <br> 
+      Our catchy and energetic tunes exude punk and power-pop vibes that have won the hearts of fans all around the world.
+    <br>  
+      KöTTBULLAR has received tremendous support from indie radio stations globally and is recognized as one of the most exciting and promising indie rock bands out there.
+    <br>  
+      Join the KöTTBULLAR experience and let our music lift your spirits and inspire bravery. Don't miss out on this electrifying band that's determined to leave a lasting impression on the music world.</p>
+
+  </div>
 
   <!-- The Tour Section 
   <div class="w3-black" id="tour">
@@ -205,6 +201,44 @@
   </div>
   -->
 
+  <!-- News Section--
+  <div class="w3-black" id="news">
+    <h2 class="w3-wide w3-center">NEWS</h2>
+
+    <div class="w3-container w3-content w3-padding-32" style="max-width:800px">
+      <div class="w3-container w3-card w3-margin-bottom">
+        <div class="w3-container">
+          <h6 class="text-accent"><i class="fa fa-calendar fa-fw w3-margin-right"></i>12 Jan 2023</h6>
+          <h6 class="w3-opacity"><b>Rooftop is released!</b></h6>
+          <p>On January 12, 2023, the we released our new single, Rooftop.
+            This music helps a listener feel the moment: it is ideal for a relaxing day at home or a car drive.
+            'Rooftop' was written on the roof, inspired by late-summer Munich,
+            train sounds, and the starry sky. It makes a romantic mood full of hope and expectations. The
+            song tells the story of a girl who was too shy to open her loving heart, so she relied on her robots.
+            This rock ballad opens the band from a new lyrical side. The groovy bass in the verse and the
+            heavy guitars in the bridge create a unique stadium rock atmosphere that we all miss sometimes.
+            The chorus hook melody is relatively easy to repeat and sing along to. Listen now <a href="https://onerpm.link/181167909441" target="_blank">here</a>.</p>
+          <hr>
+        </div>
+        <div class="w3-container">
+          <h6 class="text-accent"><i class="fa fa-calendar fa-fw w3-margin-right"></i>01 Jan 2023</h6>
+          <h6 class="w3-opacity"><b>We are on the radio!</b></h6>
+          <p>10 radiostations broadcast our song</p>
+          <hr>
+        </div>
+        <div class="w3-container">
+          <h6 class="text-accent"><i class="fa fa-calendar fa-fw w3-margin-right"></i>01 Dec 2022</h6>
+          <h6 class="w3-opacity"><b>Emily is released!</b></h6>
+          <p>EMILY is an extraordinary example of storytelling about a crazy friend (the kind we all have)
+            who can occasionally change your life. This track will inspire you to do something spontaneous,
+            unexpected, and impressive. Don't we all love surprises? Full of energy and positive vibes,
+            EMILY is an excellent choice for jogging or any other sport activity, dancing, or even house
+            cleaning. Listen to the song <a href="https://onerpm.link/107532773978" target="_blank">here</a>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  -->
   <!-- Ticket Modal -->
   <!--<div id="ticketModal" class="w3-modal">
     <div class="w3-modal-content w3-animate-top w3-card-4">
