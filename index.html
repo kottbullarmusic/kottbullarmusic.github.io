@@ -21,7 +21,6 @@
     font-weight: 400;
   }
   .mySlides {display: none}
-
   #arrowDown {
     animation-name: arrow;
     animation-duration: 2s;
@@ -45,8 +44,8 @@
 <!-- Navbar -->
 <div class="w3-bottom">
   <div class="w3-bar w3-black w3-card">
-    <a href="#releases" class="w3-bar-item w3-button w3-padding-large w3-hide-small">RELEASES</a>
-    <a href="#bio" class="w3-bar-item w3-button w3-padding-large w3-hide-small">ABOUT US</a>
+    <!--<a href="#releases" class="w3-bar-item w3-button w3-padding-large w3-hide-small">RELEASES</a>-->
+    <a href="press.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">PRESS ABOUT US</a>
     <!--<a href="#news" class="w3-bar-item w3-button w3-padding-large w3-hide-small">NEWS</a>-->
     <!--<a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CONTACT</a>-->
     <!--<div class="w3-dropdown-hover w3-hide-small">
@@ -64,6 +63,7 @@
       <a href="https://music.apple.com/de/artist/k%C3%B6ttbullar/1652984498" target="_blank"><i class="fa fa-apple w3-padding-small w3-hover-opacity"></i></a>
       <a href="https://www.youtube.com/channel/UClygeOR7txwr3sTwhkuaAzw" target="_blank"><i class="fa fa-youtube w3-padding-small w3-hover-opacity"></i></a>
       <a href="https://music.amazon.com.au/artists/B0BLHRP73H/k%C3%B6ttbullar" target="_blank"><i class="fa fa-amazon w3-padding-small w3-hover-opacity"></i></a>
+      <a href="https://kottbullar.bandcamp.com" target="_blank"><i class="fa fa-brands fa-bandcamp w3-padding-small w3-hover-opacity"></i></a>
       <a href="https://soundcloud.com/user-531858927" target="_blank"><i class="fa fa-soundcloud w3-padding-small w3-hover-opacity"></i></a>
       <a href="mailto:koettbullar.music@gmail.com" target="_blank"><i class="fa fa-envelope w3-padding-small w3-hover-opacity"></i></a>
     </span>
@@ -201,7 +201,7 @@
   </div>
   -->
 
-  <!-- News Section--
+  <!-- News Section- ->
   <div class="w3-black" id="news">
     <h2 class="w3-wide w3-center">NEWS</h2>
 
@@ -238,7 +238,7 @@
       </div>
     </div>
   </div>
-  -->
+
   <!-- Ticket Modal -->
   <!--<div id="ticketModal" class="w3-modal">
     <div class="w3-modal-content w3-animate-top w3-card-4">
@@ -290,8 +290,11 @@
 <!-- End Page Content -->
 </div>
 
+<!-- Video -->
+<iframe style="min-height:100vh;width:100%" src="https://www.youtube.com/embed/bffJhBZnTm0" frameborder="0" allowfullscreen></iframe>
+
 <!-- Logo -->
-<img src="/w3images/footer.jpg" class="w3-image w3-greyscale-min w3-hide-small" style="width:100%">
+<img src="/w3images/footer.jpg" id="footer-image" class="w3-image w3-greyscale-min w3-hide-small" style="width:100%">
 
 <script>
 // Automatic Slideshow - change image every 4 seconds
@@ -326,6 +329,25 @@ window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
+}
+
+document.addEventListener("scroll", (event) => {
+  var rotate = window.scrollY / 10
+  // console.log(rotate);
+  // debounce(setHue(rotate));
+});
+
+function debounce(func, timeout = 100){
+  let timer;
+  return (...args) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => { func.apply(this, args); }, timeout);
+  };
+}
+
+function setHue(rotate) {
+  var image = document.getElementById("footer-image");
+  image.style.filter = "sepia(100%) saturate(300%) brightness(70%) hue-rotate(" + rotate + "deg)"
 }
 </script>
 
