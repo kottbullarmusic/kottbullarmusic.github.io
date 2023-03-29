@@ -15,7 +15,10 @@
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#ffffff">
   <style>
-  body {font-family: "Lato", sans-serif}
+  body {
+    font-family: "Lato", sans-serif;
+    background-image: url(w3images/tolex.jpg);
+  }
   .mainFont {
     font-family:  "Segoe UI",Arial,sans-serif;
     font-weight: 400;
@@ -30,7 +33,14 @@
 
   .text-accent, .text-accent:hover {
     color: rgba(235,246,170)!important;
-}
+  }
+
+  .fa-menu {
+    font-size: 1.8em;
+    line-height: .75em;
+    vertical-align: -20%;
+    margin-left: 16px !important;
+  }
 
   @keyframes arrow {
   0%   {padding-top: 0px;}
@@ -42,20 +52,18 @@
 <body>
 
 <!-- Navbar -->
+<div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="height: 100%;padding-top:46px">
+  <a href="/" class="w3-bar-item w3-button w3-padding-large">KöTTBULLAR</a>
+  <a href="press.html" class="w3-bar-item w3-button w3-padding-large">PRESS ABOUT US</a>
+  <a href="contact.html" class="w3-bar-item w3-button w3-padding-large">CONTACT</a>
+</div>
+
 <div class="w3-bottom">
   <div class="w3-bar w3-black w3-card">
-    <!--<a href="#releases" class="w3-bar-item w3-button w3-padding-large w3-hide-small">RELEASES</a>-->
+    <a href="#" class="w3-bar-item w3-button w3-padding-large w3-hide-small">KöTTBULLAR</a>
     <a href="press.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">PRESS ABOUT US</a>
-    <!--<a href="#news" class="w3-bar-item w3-button w3-padding-large w3-hide-small">NEWS</a>-->
-    <!--<a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CONTACT</a>-->
-    <!--<div class="w3-dropdown-hover w3-hide-small">
-      <button class="w3-padding-large w3-button" title="More">MORE <i class="fa fa-caret-down"></i></button>     
-      <div class="w3-dropdown-content w3-bar-block w3-card-4">
-        <a href="#" class="w3-bar-item w3-button">Merchandise</a>
-        <a href="#" class="w3-bar-item w3-button">Extras</a>
-        <a href="#" class="w3-bar-item w3-button">Media</a>
-      </div>
-    </div>-->
+    <a href="contact.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CONTACT</a>
+
     <span class="w3-padding-large w3-hover-red w3-right">
       <a href="https://www.instagram.com/kottbullar.music/" target="_blank"><i class="fa fa-instagram w3-padding-small w3-hover-opacity"></i></a>
       <a href="https://www.facebook.com/people/K%C3%B6TTBULLAR/100088226469948/" target="_blank"><i class="fa fa-facebook w3-padding-small w3-hover-opacity"></i></a>
@@ -66,6 +74,7 @@
       <a href="https://kottbullar.bandcamp.com" target="_blank"><i class="fa fa-brands fa-bandcamp w3-padding-small w3-hover-opacity"></i></a>
       <a href="https://soundcloud.com/user-531858927" target="_blank"><i class="fa fa-soundcloud w3-padding-small w3-hover-opacity"></i></a>
       <a href="mailto:koettbullar.music@gmail.com" target="_blank"><i class="fa fa-envelope w3-padding-small w3-hover-opacity"></i></a>
+      <a class="w3-hide-large w3-hide-medium" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-menu fa-bars w3-padding-small w3-right w3-hover-opacity"></i></a>
     </span>
   </div>
 </div>
@@ -108,18 +117,32 @@
       <h2 class="w3-wide w3-center">LATEST RELEASES</h2>
 
       <div class="w3-row-padding w3-padding-32" style="margin:0 -16px">
-        <div class="w3-third w3-margin-bottom">
-          <a href="https://onerpm.link/107532773978" target="_blank">
-            <img src="/w3images/covers/emily.jpeg" alt="Emily" style="width:100%" class="w3-hover-opacity">
+
+        <div class="w3-quarter w3-margin-bottom">
+          <a href="https://onerpm.link/937652106389" target="_blank">
+            <img src="/w3images/covers/hello.jpg" alt="Hello" style="width:100%" class="w3-hover-opacity">
             <div class="w3-container w3-white">
-              <p><b>Emily</b></p>
-              <p class="w3-opacity">01 December 2022</p>
+              <p><b>Hello</b></p>
+              <p class="w3-opacity">31 March 2023</p>
               <!--<p><p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>-->
               <button class="w3-button w3-black w3-margin-bottom">Listen now</button>
             </div>
           </a>
         </div>
-        <div class="w3-third w3-margin-bottom">
+        
+        <div class="w3-quarter w3-margin-bottom">
+          <a href="https://onerpm.link/275052288690" target="_blank">
+            <img src="/w3images/covers/alone.jpg" alt="Rooftop" style="width:100%" class="w3-hover-opacity">
+            <div class="w3-container w3-white">
+              <p><b>Alone</b></p>
+              <p class="w3-opacity">28 February 2023</p>
+              <!--<p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>-->
+              <button class="w3-button w3-black w3-margin-bottom">Listen now</button>
+            </div>
+          </a>
+        </div>
+
+        <div class="w3-quarter w3-margin-bottom">
           <a href="https://onerpm.link/181167909441" target="_blank">
             <img src="/w3images/covers/rooftop.jpeg" alt="Rooftop" style="width:100%" class="w3-hover-opacity">
             <div class="w3-container w3-white">
@@ -130,13 +153,14 @@
             </div>
           </a>
         </div>
-        <div class="w3-third w3-margin-bottom">
-          <a href="https://onerpm.link/275052288690" target="_blank">
-            <img src="/w3images/covers/alone.jpg" alt="Rooftop" style="width:100%" class="w3-hover-opacity">
+        
+        <div class="w3-quarter w3-margin-bottom">
+          <a href="https://onerpm.link/107532773978" target="_blank">
+            <img src="/w3images/covers/emily.jpeg" alt="Emily" style="width:100%" class="w3-hover-opacity">
             <div class="w3-container w3-white">
-              <p><b>Alone</b></p>
-              <p class="w3-opacity">28 February 2023</p>
-              <!--<p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>-->
+              <p><b>Emily</b></p>
+              <p class="w3-opacity">01 December 2022</p>
+              <!--<p><p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>-->
               <button class="w3-button w3-black w3-margin-bottom">Listen now</button>
             </div>
           </a>
