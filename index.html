@@ -200,28 +200,31 @@
 
   </div>
 
-  <!-- The Tour Section 
+
   <div class="w3-black" id="tour">
     <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
       <h2 class="w3-wide w3-center">LIVE DATES</h2>
       <p class="w3-opacity w3-center"><i>Remember to book your tickets!</i></p><br>
 
+	  <!--
       <ul class="w3-ul w3-border w3-white w3-text-grey">
         <li class="w3-padding">September <span class="w3-tag w3-red w3-margin-left">Sold out</span></li>
         <li class="w3-padding">October <span class="w3-tag w3-red w3-margin-left">Sold out</span></li>
         <li class="w3-padding">November <span class="w3-badge w3-right w3-margin-right">3</span></li>
       </ul>
-
+	  -->
+	  
       <div class="w3-row-padding w3-padding-32" style="margin:0 -16px">
         <div class="w3-third w3-margin-bottom">
           <div class="w3-container w3-white">
             <p><b>Munich</b></p>
-            <p class="w3-opacity">Fri 27 Nov 2023</p>
-            <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-            <button class="w3-button w3-black w3-margin-bottom" onclick="document.getElementById('ticketModal').style.display='block'">Buy Tickets</button>
+            <p class="w3-opacity">Fri 13 Feb 2026</p>
+            <p>The first round of Emergenza live Festival in Backstage.</p>
+            <p>Doors: 19:00</p>
+            <button class="w3-button w3-black w3-margin-bottom" onclick="location.href = 'https://emergenza.live/artist/de/kottbullar';">Buy Tickets</button>
           </div>
         </div>
-        <div class="w3-third w3-margin-bottom">
+        <!--<div class="w3-third w3-margin-bottom">
           <div class="w3-container w3-white">
             <p><b>Berlin</b></p>
             <p class="w3-opacity">Sat 28 Nov 2023</p>
@@ -236,11 +239,11 @@
             <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
             <button class="w3-button w3-black w3-margin-bottom" onclick="document.getElementById('ticketModal').style.display='block'">Buy Tickets</button>
           </div>
-        </div>
+        </div>-->
       </div>
     </div>
   </div>
-  -->
+
 
   <!-- News Section- ->
   <div class="w3-black" id="news">
@@ -391,6 +394,28 @@ function setHue(rotate) {
   image.style.filter = "sepia(100%) saturate(300%) brightness(70%) hue-rotate(" + rotate + "deg)"
 }
 </script>
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
 
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyAbWxCXy1-8B97uCDd7MW5OORp_Y5RXc4A",
+    authDomain: "website-analytics-98e72.firebaseapp.com",
+    projectId: "website-analytics-98e72",
+    storageBucket: "website-analytics-98e72.firebasestorage.app",
+    messagingSenderId: "29928185886",
+    appId: "1:29928185886:web:5d2f3e740a1e6d964f8e0f",
+    measurementId: "G-VMXWJHR8SV"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
 </body>
 </html>
