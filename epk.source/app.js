@@ -135,6 +135,73 @@ function VinylVariant({ accent, grain, duotone, showAnnotations }) {
     .v1 .fivebar > i { display:block; height:10px; background:var(--accent); border-radius:1px; }
     .grain{position:fixed; inset:0; pointer-events:none; z-index:9999; mix-blend-mode:overlay; opacity:.55}
     @keyframes ticker { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+    /* Named-area grids — keep desktop layout while letting mobile reorder. */
+    .v1 .bio-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      grid-template-areas: "text headline" "lineup headline";
+      gap: 56px;
+    }
+    .v1 .bio-text     { grid-area: text; }
+    .v1 .bio-headline { grid-area: headline; }
+    .v1 .bio-lineup   { grid-area: lineup; }
+
+    .v1 .release-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      grid-template-areas: "cover headline" "cover meta";
+      gap: 56px;
+      align-items: start;
+    }
+    .v1 .release-headline { grid-area: headline; }
+    .v1 .release-cover    { grid-area: cover; }
+    .v1 .release-meta     { grid-area: meta; }
+
+    .v1 .shows-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      grid-template-areas: "list headline";
+      gap: 56px;
+      align-items: start;
+    }
+    .v1 .shows-list     { grid-area: list; }
+    .v1 .shows-headline { grid-area: headline; }
+
+    /* Mobile: collapse two-column grids, scale display type, tighten padding. */
+    @media (max-width: 760px) {
+      .v1 .pad      { padding-left: 16px !important; padding-right: 16px !important; }
+      .v1 .pad-y    { padding-top: 36px !important; padding-bottom: 36px !important; }
+      .v1 .runner   { flex-direction: column; align-items: flex-start; gap: 6px; }
+      .v1 .grid-2   { grid-template-columns: 1fr !important; gap: 28px !important; }
+      .v1 .grid-end { align-items: start !important; }
+      .v1 .members  { grid-template-columns: repeat(2, 1fr) !important; }
+      .v1 .show-row { grid-template-columns: auto 1fr !important; row-gap: 4px !important; column-gap: 12px !important; }
+      .v1 .show-row .show-note { grid-column: 1 / -1; justify-self: start; }
+      .v1 .right-md { text-align: left !important; }
+      .v1 .display-lg { font-size: 48px !important; line-height: 0.95 !important; }
+      .v1 .display-xl { font-size: 56px !important; line-height: 0.9 !important; }
+      .v1 .display-xxl { font-size: 64px !important; line-height: 0.9 !important; }
+      .v1 .bio-drop  { font-size: 48px !important; }
+      .v1 .stages-h  { font-size: 56px !important; }
+      .v1 .ep-cover { max-width: 320px; }
+
+      .v1 .bio-grid {
+        grid-template-columns: 1fr;
+        grid-template-areas: "headline" "text" "lineup";
+        gap: 28px;
+      }
+      .v1 .release-grid {
+        grid-template-columns: 1fr;
+        grid-template-areas: "headline" "cover" "meta";
+        gap: 24px;
+      }
+      .v1 .shows-grid {
+        grid-template-columns: 1fr;
+        grid-template-areas: "headline" "list";
+        gap: 24px;
+      }
+    }
   `;
 
   const headline = "Big hooks,\nwarm vocals,\ninstant atmosphere.";
@@ -146,7 +213,7 @@ function VinylVariant({ accent, grain, duotone, showAnnotations }) {
 
       {/* Top runner */}
       <div style={{ borderBottom: "1px solid var(--line)" }}>
-        <div style={{ maxWidth: 1280, margin: "0 auto", padding: "14px 32px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <div className="pad runner" style={{ maxWidth: 1280, margin: "0 auto", padding: "14px 32px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
           <div className="mono">KÖTTBULLAR · ELECTRONIC PRESS KIT · v.05 / 2026</div>
           <div className="mono" style={{ display: "flex", gap: 18 }}>
             <span>{BAND.hometown}</span>
@@ -158,7 +225,7 @@ function VinylVariant({ accent, grain, duotone, showAnnotations }) {
 
       {/* HERO */}
       <section style={{ borderBottom: "1px solid var(--line)" }}>
-        <div style={{ maxWidth: 1280, margin: "0 auto", padding: "44px 32px 56px", display: "grid", gridTemplateColumns: "1.36fr 1fr", gap: 48, alignItems: "center" }}>
+        <div className="pad pad-y grid-2" style={{ maxWidth: 1280, margin: "0 auto", padding: "44px 32px 56px", display: "grid", gridTemplateColumns: "1.36fr 1fr", gap: 48, alignItems: "center" }}>
           <div style={{ position: "relative" }}>
             <div style={{ position: "relative", aspectRatio: "560 / 315", border: "1px solid var(--line)", overflow: "hidden", background: "#000" }}>
               <iframe
@@ -174,12 +241,6 @@ function VinylVariant({ accent, grain, duotone, showAnnotations }) {
           </div>
 
           <div>
-            <div style={{ display: "flex", gap: 10, marginBottom: 28, flexWrap: "wrap" }}>
-              <span className="chip dot">EPK · 2026</span>
-              <span className="chip">Indie / Punk / Power-pop</span>
-              <span className="chip">Self-released</span>
-            </div>
-            <div className="rule" style={{ margin: "0 0 18px" }}/>
             <div style={{ display: "grid", gridTemplateColumns: "auto 1fr", columnGap: 24, rowGap: 10 }}>
               <div className="mono">Style</div><div>{BAND.shortBio}</div>
               <div className="mono">For fans of</div><div>{BAND.fyfa.join(" · ")}</div>
@@ -190,15 +251,24 @@ function VinylVariant({ accent, grain, duotone, showAnnotations }) {
 
       {/* BIO */}
       <section style={{ borderBottom: "1px solid var(--line)" }} className="matrix">
-        <div style={{ maxWidth: 1280, margin: "0 auto", padding: "64px 32px", display: "grid", gridTemplateColumns: "1.4fr 1fr", gap: 56 }}>
-          <div style={{ fontSize: 18, lineHeight: 1.6 }}>
+        <div className="pad pad-y bio-grid" style={{ maxWidth: 1280, margin: "0 auto", padding: "64px 32px" }}>
+          <div className="bio-text" style={{ fontSize: 18, lineHeight: 1.6 }}>
             <p style={{ margin: 0 }}>
-              <span className="display" style={{ fontSize: 64, float: "left", lineHeight: .8, marginRight: 10, marginTop: 8, color: "var(--accent)" }}>K</span>
+              <span className="display bio-drop" style={{ fontSize: 64, float: "left", lineHeight: .8, marginRight: 10, marginTop: 8, color: "var(--accent)" }}>K</span>
               {BAND.longBio}
             </p>
-            <div className="rule" style={{ margin: "28px 0 16px" }}/>
+          </div>
+          <div className="bio-headline">
+            <div className="mono" style={{ marginBottom: 18 }}>Bio</div>
+            <div className="display display-xl" style={{ fontSize: 80, lineHeight: .85, color: "var(--ink)" }}>
+              FOUR<br/>FROM<br/><span className="accent">MÜNCHEN.</span>
+            </div>
+            <div className="mono" style={{ marginTop: 18 }}>EST. 2021 · ACTIVE</div>
+          </div>
+          <div className="bio-lineup">
+            <div className="rule" style={{ margin: "0 0 16px" }}/>
             <div className="mono" style={{ marginBottom: 10 }}>The Lineup</div>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 16 }}>
+            <div className="members" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 16 }}>
               {BAND.members.map(m => (
                 <div key={m.name} style={{ borderTop: "1px solid var(--accent)", paddingTop: 10 }}>
                   <div style={{ fontSize: 22, letterSpacing: -.01 }}>{m.name}</div>
@@ -207,22 +277,19 @@ function VinylVariant({ accent, grain, duotone, showAnnotations }) {
               ))}
             </div>
           </div>
-          <div>
-            <div className="mono" style={{ marginBottom: 18 }}>Bio</div>
-            <div className="display" style={{ fontSize: 80, lineHeight: .85, color: "var(--ink)" }}>
-              FOUR<br/>FROM<br/><span className="accent">MÜNCHEN.</span>
-            </div>
-            <div className="mono" style={{ marginTop: 18 }}>EST. 2021 · ACTIVE</div>
-          </div>
         </div>
       </section>
 
       {/* RELEASE SPOTLIGHT */}
       <section style={{ borderBottom: "1px solid var(--line)" }}>
-        <div style={{ maxWidth: 1280, margin: "0 auto", padding: "64px 32px" }}>
+        <div className="pad pad-y" style={{ maxWidth: 1280, margin: "0 auto", padding: "64px 32px" }}>
           <div className="mono" style={{ marginBottom: 28 }}>Spotlight Release</div>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1.4fr", gap: 56, alignItems: "start" }}>
-            <div>
+          <div className="release-grid">
+            <h2 className="release-headline display stages-h" style={{ fontSize: "clamp(56px, 6vw, 92px)", margin: 0 }}>
+              THE FIVE<br/>
+              <span className="accent" style={{ fontStyle: "italic", fontFamily: "'Caveat', cursive", fontWeight: 700, letterSpacing: 0, textTransform: "none" }}>Stages Of</span>
+            </h2>
+            <div className="release-cover ep-cover">
               <div style={{ position: "relative" }}>
                 <Photo src={window.__resources.coverEp} alt="The Five Stages Of cover"
                   style={{ aspectRatio: "1/1", border: "1px solid var(--line)" }}/>
@@ -234,11 +301,7 @@ function VinylVariant({ accent, grain, duotone, showAnnotations }) {
               </div>
             </div>
 
-            <div>
-              <h2 className="display" style={{ fontSize: "clamp(56px, 6vw, 92px)", margin: 0 }}>
-                THE FIVE<br/>
-                <span className="accent" style={{ fontStyle: "italic", fontFamily: "'Caveat', cursive", fontWeight: 700, letterSpacing: 0, textTransform: "none" }}>Stages Of</span>
-              </h2>
+            <div className="release-meta">
               <p style={{ fontSize: 18, lineHeight: 1.55, color: "var(--ink)", marginTop: 24, maxWidth: 620 }}>{EP_STORY}</p>
 
               <div className="rule" style={{ margin: "28px 0 16px" }}/>
@@ -265,34 +328,34 @@ function VinylVariant({ accent, grain, duotone, showAnnotations }) {
 
       {/* SHOWS */}
       <section style={{ borderBottom: "1px solid var(--line)" }}>
-        <div style={{ maxWidth: 1280, margin: "0 auto", padding: "64px 32px" }}>
+        <div className="pad pad-y" style={{ maxWidth: 1280, margin: "0 auto", padding: "64px 32px" }}>
           <div className="mono" style={{ marginBottom: 18 }}>Coming Up</div>
-          <div style={{ display: "grid", gridTemplateColumns: "1.2fr 1fr", gap: 56, alignItems: "start" }}>
-            <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+          <div className="shows-grid">
+            <div className="shows-headline display display-xl right-md" style={{ fontSize: 80, lineHeight: .9, textAlign: "right" }}>
+              SUMMER<br/><span className="accent">'26</span><br/>SHOWS
+            </div>
+            <ul className="shows-list" style={{ listStyle: "none", padding: 0, margin: 0 }}>
               {BAND.upcomingShows.map((s, i) => (
-                <li key={i} style={{ display: "grid", gridTemplateColumns: "140px 1fr auto", gap: 18, padding: "20px 0", borderTop: i === 0 ? "1px solid var(--accent)" : "1px solid var(--line)" }}>
+                <li key={i} className="show-row" style={{ display: "grid", gridTemplateColumns: "140px 1fr auto", gap: 18, padding: "20px 0", borderTop: i === 0 ? "1px solid var(--accent)" : "1px solid var(--line)" }}>
                   <span className="mono">{s.date}</span>
                   <div>
                     <div style={{ fontSize: 22, lineHeight: 1.1 }}>{s.venue}</div>
                     <div className="mono" style={{ marginTop: 4 }}>{s.city}</div>
                   </div>
-                  {s.note && <span className="chip" style={{ alignSelf: "center", textTransform: "uppercase" }}>{s.note}</span>}
+                  {s.note && <span className="chip show-note" style={{ alignSelf: "center", textTransform: "uppercase" }}>{s.note}</span>}
                 </li>
               ))}
             </ul>
-            <div className="display" style={{ fontSize: 80, lineHeight: .9, textAlign: "right" }}>
-              SUMMER<br/><span className="accent">'26</span><br/>SHOWS
-            </div>
           </div>
         </div>
       </section>
 
       {/* CONTACT */}
       <section>
-        <div style={{ maxWidth: 1280, margin: "0 auto", padding: "72px 32px" }}>
+        <div className="pad pad-y" style={{ maxWidth: 1280, margin: "0 auto", padding: "72px 32px" }}>
           <div className="mono" style={{ marginBottom: 18 }}>Booking & Contact</div>
-          <div style={{ display: "grid", gridTemplateColumns: "1.6fr 1fr", gap: 48, alignItems: "end" }}>
-            <h2 className="display" style={{ fontSize: "clamp(64px, 8vw, 132px)", margin: 0, lineHeight: .88 }}>
+          <div className="grid-2 grid-end" style={{ display: "grid", gridTemplateColumns: "1.6fr 1fr", gap: 48, alignItems: "end" }}>
+            <h2 className="display display-xxl" style={{ fontSize: "clamp(64px, 8vw, 132px)", margin: 0, lineHeight: .88 }}>
               BOOK US.<br/>
               <span className="accent">PROMISE</span><br/>
               IT'S LOUD.
