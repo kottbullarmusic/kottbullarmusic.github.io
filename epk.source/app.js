@@ -8,60 +8,116 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   "showAnnotations": true
 }/*EDITMODE-END*/;
 
-// ─── Shared data ─────────────────────────────────────────────────────────────
+// ─── i18n: language-dependent copy ───────────────────────────────────────────
+// Edit translations here. Keys must match between `en` and `de`.
+// Override at runtime with ?lang=de or ?lang=en for testing.
+const COPY = {
+  en: {
+    runner:  { kit: "ELECTRONIC PRESS KIT · v.05 / 2026", booking: "BOOKING / LABELS" },
+    hero:    { videoTitle: "KöTTBULLAR LIVE",
+               style: "Style", fyfa: "For fans of",
+               hometown: "Munich, DE",
+               shortBio: "Indie / punk / power-pop quartet from Munich." },
+    roles:   { vocals: "Vocals", guitar: "Guitar", bass: "Bass", drums: "Drums" },
+    bio:     { label: "Bio", lineup: "The Lineup", est: "EST. 2021 · ACTIVE",
+               line1: "FOUR", line2: "FROM", line3: "MÜNCHEN.",
+               paragraph:
+                 "KÖTTBULLAR is a four-piece formed in the back-rooms of Munich's DIY scene — " +
+                 "a band that treats the gap between distortion and a melody line like a place " +
+                 "to live. Alina's vocals carry the weight; Viktor, Liliia and Yaroslav build " +
+                 "the room around her with rock-guitar bones and power-pop joints. Their songs " +
+                 "are short, direct, and catchy." },
+    release: { label: "Spotlight Release", line1: "THE FIVE", line2: "Stages Of",
+               coverAlt: "The Five Stages Of cover",
+               handwriting: "handwriting by Alina ✱",
+               tracklist: "Tracklist",
+               listen: "▶ LISTEN ON ALL DSPS",
+               story:
+                 "Breaking up with a friend can cut deeper than expected. For KöTTBULLAR, that " +
+                 "rupture became the emotional core of The Five Stages Of — an album born from " +
+                 "personal loss, unanswered questions, and the slow process of letting go. Built " +
+                 "around the five stages of grief — Denial, Anger, Bargaining, Depression, and " +
+                 "Acceptance — each track becomes its own chapter, with a distinct sound, mood, " +
+                 "and emotional weight." },
+    shows:   { label: "Coming Up", line1: "SUMMER", line2: "'26", line3: "SHOWS",
+               list: [
+                 { date: "02 May 2026", venue: "The Underground Rock",        city: "München, DE", note: "" },
+                 { date: "25 Jul 2026", venue: "Kulturspektakel Gauting 2026", city: "Gauting, DE", note: "free entry" },
+               ] },
+    contact: { label: "Booking & Contact",
+               line1: "BOOK US.", line2: "PROMISE", line3: "IT'S LOUD.",
+               booking: "Booking", instagram: "Instagram",
+               labelLine: "Label", labelValue: "self-released" },
+  },
+  de: {
+    runner:  { kit: "ELECTRONIC PRESS KIT · v.05 / 2026", booking: "BOOKING / LABELS" },
+    hero:    { videoTitle: "KöTTBULLAR LIVE",
+               style: "Stil", fyfa: "Für Fans von",
+               hometown: "München, DE",
+               shortBio: "Indie / Punk / Power-Pop-Quartett aus München." },
+    roles:   { vocals: "Gesang", guitar: "Gitarre", bass: "Bass", drums: "Schlagzeug" },
+    bio:     { label: "Bio", lineup: "Die Besetzung", est: "GEGR. 2021 · AKTIV",
+               line1: "VIER", line2: "AUS", line3: "MÜNCHEN.",
+               paragraph:
+                 "KÖTTBULLAR ist ein Quartett aus den Hinterzimmern der Münchner DIY-Szene — " +
+                 "eine Band, die den Raum zwischen Verzerrung und Melodie wie einen Ort zum " +
+                 "Leben behandelt. Alinas Stimme trägt das Gewicht; Viktor, Liliia und Yaroslav " +
+                 "bauen den Raum um sie herum aus Rockgitarren-Knochen und Power-Pop-Verbindungen. " +
+                 "Ihre Songs sind kurz, direkt und eingängig." },
+    release: { label: "Aktuelle Veröffentlichung", line1: "THE FIVE", line2: "Stages Of",
+               coverAlt: "Cover von The Five Stages Of",
+               handwriting: "Handschrift von Alina ✱",
+               tracklist: "Trackliste",
+               listen: "▶ AUF ALLEN DSPS HÖREN",
+               story:
+                 "Eine Freundschaft zu beenden kann tiefer schneiden als gedacht. Für KöTTBULLAR " +
+                 "wurde dieser Bruch zum emotionalen Kern von The Five Stages Of — einem Album, " +
+                 "das aus persönlichem Verlust, unbeantworteten Fragen und dem langsamen Loslassen " +
+                 "entstand. Aufgebaut um die fünf Phasen der Trauer — Verleugnung, Wut, Verhandeln, " +
+                 "Depression und Akzeptanz — wird jeder Track zu einem eigenen Kapitel, mit eigenem " +
+                 "Sound, eigener Stimmung und eigenem emotionalen Gewicht." },
+    shows:   { label: "Demnächst", line1: "SOMMER", line2: "'26", line3: "SHOWS",
+               list: [
+                 { date: "02. Mai 2026",  venue: "The Underground Rock",        city: "München, DE", note: "" },
+                 { date: "25. Juli 2026", venue: "Kulturspektakel Gauting 2026", city: "Gauting, DE", note: "Eintritt frei" },
+               ] },
+    contact: { label: "Booking & Kontakt",
+               line1: "BUCHT UNS.", line2: "VERSPROCHEN", line3: "ES WIRD LAUT.",
+               booking: "Booking", instagram: "Instagram",
+               labelLine: "Label", labelValue: "Eigenverlag" },
+  },
+};
+
+// ?lang=de|en overrides browser preference; German for de-*, English otherwise.
+const LANG = (() => {
+  const url = new URLSearchParams(location.search).get("lang");
+  if (url === "de" || url === "en") return url;
+  const browser = (navigator.languages && navigator.languages[0]) || navigator.language || "en";
+  return browser.toLowerCase().startsWith("de") ? "de" : "en";
+})();
+const T = COPY[LANG];
+document.documentElement.lang = LANG;
+
+// ─── Language-independent shared data ────────────────────────────────────────
 const BAND = {
   name: "KÖTTBULLAR",
-  hometown: "Munich, DE",
-  formed: "Est. 2021",
   members: [
-    { name: "Alina",    role: "Vocals" },
-    { name: "Viktor",   role: "Guitar" },
-    { name: "Liliia",   role: "Bass" },
-    { name: "Yaroslav", role: "Drums" },
+    { name: "Alina",    roleKey: "vocals" },
+    { name: "Viktor",   roleKey: "guitar" },
+    { name: "Liliia",   roleKey: "bass" },
+    { name: "Yaroslav", roleKey: "drums" },
   ],
-  shortBio:
-    "Indie / punk / power-pop quartet from Munich.",
-  longBio:
-    "KÖTTBULLAR is a four-piece formed in the back-rooms of Munich's DIY scene — " +
-    "a band that treats the gap between distortion and a melody line like a place " +
-    "to live. Alina's vocals carry the weight; Viktor, Liliia and Yaroslav build " +
-    "the room around her with rock-guitar bones and power-pop joints. Their songs " +
-    "are short, direct, and catchy.",
   fyfa: ["Wolf Alice", "Pixies", "The Beths"],
-  pressQuotes: [
-    { who: "Rockera Magazine",   what: "Rock guitars and heart-warming vocal lines collide in a way that feels both familiar and brand new." },
-    { who: "York Calling (UK)",  what: "Catchy as a chorus you can't shake — KÖTTBULLAR write hooks like they mean them." },
-    { who: "Indie Chronique (FR)", what: "Une énergie qui transforme un club de Munich en arène intime." },
-    { who: "Plastic Mag (UK)",   what: "An indie band that remembers what punk is for." },
-  ],
   releases: [
     { title: "The Five Stages Of", date: "28 Nov 2025", kind: "EP", cover: window.__resources.coverEp, url: "https://onerpm.link/225132004305", catNo: "KB-005" },
   ],
-  topTracks: [
-    { n: "01", title: "Denial",     from: "The Five Stages Of", time: "3:14" },
-    { n: "02", title: "Bargaining", from: "The Five Stages Of", time: "2:48" },
-    { n: "03", title: "Hello",      from: "Single",             time: "3:02" },
-  ],
-  upcomingShows: [
-    { date: "02 May 2026", venue: "The Underground Rock", city: "München, DE", note: "" },
-    { date: "25 Jul 2026", venue: "Kulturspektakel Gauting 2026", city: "Gauting, DE", note: "free entry" },
-  ],
   contact: {
     booking: "koettbullar.music@gmail.com",
-    label:   "self-released",
     site:    "kottbullarmusic.github.io",
     ig:      "kottbullar.music",
     igUrl:   "https://www.instagram.com/kottbullar.music",
   },
 };
-
-const EP_STORY =
-  "Breaking up with a friend can cut deeper than expected. For KöTTBULLAR, that " +
-  "rupture became the emotional core of The Five Stages Of — an album born from " +
-  "personal loss, unanswered questions, and the slow process of letting go. Built " +
-  "around the five stages of grief — Denial, Anger, Bargaining, Depression, and " +
-  "Acceptance — each track becomes its own chapter, with a distinct sound, mood, " +
-  "and emotional weight.";
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 const Grain = ({ on }) => on ? (
@@ -204,8 +260,6 @@ function VinylVariant({ accent, grain, duotone, showAnnotations }) {
     }
   `;
 
-  const headline = "Big hooks,\nwarm vocals,\ninstant atmosphere.";
-
   return (
     <div className="v1" style={{ position: "relative" }}>
       <style>{css}</style>
@@ -214,11 +268,11 @@ function VinylVariant({ accent, grain, duotone, showAnnotations }) {
       {/* Top runner */}
       <div style={{ borderBottom: "1px solid var(--line)" }}>
         <div className="pad runner" style={{ maxWidth: 1280, margin: "0 auto", padding: "14px 32px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-          <div className="mono">KÖTTBULLAR · ELECTRONIC PRESS KIT · v.05 / 2026</div>
+          <div className="mono">{BAND.name} · {T.runner.kit}</div>
           <div className="mono" style={{ display: "flex", gap: 18 }}>
-            <span>{BAND.hometown}</span>
+            <span>{T.hero.hometown}</span>
             <span className="accent">●</span>
-            <span>BOOKING / LABELS</span>
+            <span>{T.runner.booking}</span>
           </div>
         </div>
       </div>
@@ -230,7 +284,7 @@ function VinylVariant({ accent, grain, duotone, showAnnotations }) {
             <div style={{ position: "relative", aspectRatio: "560 / 315", border: "1px solid var(--line)", overflow: "hidden", background: "#000" }}>
               <iframe
                 src="https://www.youtube-nocookie.com/embed/T_eKWe5TkXg?controls=0&rel=0&modestbranding=1"
-                title="KöTTBULLAR LIVE"
+                title={T.hero.videoTitle}
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerPolicy="strict-origin-when-cross-origin"
@@ -242,8 +296,8 @@ function VinylVariant({ accent, grain, duotone, showAnnotations }) {
 
           <div>
             <div style={{ display: "grid", gridTemplateColumns: "auto 1fr", columnGap: 24, rowGap: 10 }}>
-              <div className="mono">Style</div><div>{BAND.shortBio}</div>
-              <div className="mono">For fans of</div><div>{BAND.fyfa.join(" · ")}</div>
+              <div className="mono">{T.hero.style}</div><div>{T.hero.shortBio}</div>
+              <div className="mono">{T.hero.fyfa}</div><div>{BAND.fyfa.join(" · ")}</div>
             </div>
           </div>
         </div>
@@ -255,24 +309,24 @@ function VinylVariant({ accent, grain, duotone, showAnnotations }) {
           <div className="bio-text" style={{ fontSize: 18, lineHeight: 1.6 }}>
             <p style={{ margin: 0 }}>
               <span className="display bio-drop" style={{ fontSize: 64, float: "left", lineHeight: .8, marginRight: 10, marginTop: 8, color: "var(--accent)" }}>K</span>
-              {BAND.longBio}
+              {T.bio.paragraph}
             </p>
           </div>
           <div className="bio-headline">
-            <div className="mono" style={{ marginBottom: 18 }}>Bio</div>
+            <div className="mono" style={{ marginBottom: 18 }}>{T.bio.label}</div>
             <div className="display display-xl" style={{ fontSize: 80, lineHeight: .85, color: "var(--ink)" }}>
-              FOUR<br/>FROM<br/><span className="accent">MÜNCHEN.</span>
+              {T.bio.line1}<br/>{T.bio.line2}<br/><span className="accent">{T.bio.line3}</span>
             </div>
-            <div className="mono" style={{ marginTop: 18 }}>EST. 2021 · ACTIVE</div>
+            <div className="mono" style={{ marginTop: 18 }}>{T.bio.est}</div>
           </div>
           <div className="bio-lineup">
             <div className="rule" style={{ margin: "0 0 16px" }}/>
-            <div className="mono" style={{ marginBottom: 10 }}>The Lineup</div>
+            <div className="mono" style={{ marginBottom: 10 }}>{T.bio.lineup}</div>
             <div className="members" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 16 }}>
               {BAND.members.map(m => (
                 <div key={m.name} style={{ borderTop: "1px solid var(--accent)", paddingTop: 10 }}>
                   <div style={{ fontSize: 22, letterSpacing: -.01 }}>{m.name}</div>
-                  <div className="mono">{m.role}</div>
+                  <div className="mono">{T.roles[m.roleKey]}</div>
                 </div>
               ))}
             </div>
@@ -283,34 +337,34 @@ function VinylVariant({ accent, grain, duotone, showAnnotations }) {
       {/* RELEASE SPOTLIGHT */}
       <section style={{ borderBottom: "1px solid var(--line)" }}>
         <div className="pad pad-y" style={{ maxWidth: 1280, margin: "0 auto", padding: "64px 32px" }}>
-          <div className="mono" style={{ marginBottom: 28 }}>Spotlight Release</div>
+          <div className="mono" style={{ marginBottom: 28 }}>{T.release.label}</div>
           <div className="release-grid">
             <h2 className="release-headline display stages-h" style={{ fontSize: "clamp(56px, 6vw, 92px)", margin: 0 }}>
-              THE FIVE<br/>
-              <span className="accent" style={{ fontStyle: "italic", fontFamily: "'Caveat', cursive", fontWeight: 700, letterSpacing: 0, textTransform: "none" }}>Stages Of</span>
+              {T.release.line1}<br/>
+              <span className="accent" style={{ fontStyle: "italic", fontFamily: "'Caveat', cursive", fontWeight: 700, letterSpacing: 0, textTransform: "none" }}>{T.release.line2}</span>
             </h2>
             <div className="release-cover ep-cover">
               <div style={{ position: "relative" }}>
-                <Photo src={window.__resources.coverEp} alt="The Five Stages Of cover"
+                <Photo src={window.__resources.coverEp} alt={T.release.coverAlt}
                   style={{ aspectRatio: "1/1", border: "1px solid var(--line)" }}/>
                 {showAnnotations && (
                   <div className="annot" style={{ position: "absolute", bottom: -22, left: 8 }}>
-                    handwriting by Alina ✱
+                    {T.release.handwriting}
                   </div>
                 )}
               </div>
             </div>
 
             <div className="release-meta">
-              <p style={{ fontSize: 18, lineHeight: 1.55, color: "var(--ink)", marginTop: 24, maxWidth: 620 }}>{EP_STORY}</p>
+              <p style={{ fontSize: 18, lineHeight: 1.55, color: "var(--ink)", marginTop: 24, maxWidth: 620 }}>{T.release.story}</p>
 
               <div className="rule" style={{ margin: "28px 0 16px" }}/>
-              <div className="mono" style={{ marginBottom: 8 }}>Tracklist</div>
+              <div className="mono" style={{ marginBottom: 8 }}>{T.release.tracklist}</div>
               <ol style={{ listStyle: "none", padding: 0, margin: 0 }}>
-                {["Denial","Anger","Bargaining","Depression","Acceptance"].map((t, i) => (
-                  <li key={t} style={{ display: "grid", gridTemplateColumns: "auto 1fr auto", gap: 12, padding: "8px 0", borderBottom: "1px solid var(--line)" }}>
+                {["Denial","Anger","Bargaining","Depression","Acceptance"].map((track, i) => (
+                  <li key={track} style={{ display: "grid", gridTemplateColumns: "auto 1fr auto", gap: 12, padding: "8px 0", borderBottom: "1px solid var(--line)" }}>
                     <span className="mono" style={{ color: "var(--accent)" }}>{String(i+1).padStart(2,"0")}</span>
-                    <span style={{ fontSize: 17 }}>{t}</span>
+                    <span style={{ fontSize: 17 }}>{track}</span>
                     <span className="mono">{["3:14","2:48","3:21","4:02","3:38"][i]}</span>
                   </li>
                 ))}
@@ -318,7 +372,7 @@ function VinylVariant({ accent, grain, duotone, showAnnotations }) {
 
               <div style={{ marginTop: 28, display: "flex", gap: 12, flexWrap: "wrap" }}>
                 <a href={BAND.releases[0].url} className="chip dot" style={{ borderColor: "var(--accent)", color: "var(--ink)", padding: "10px 16px", fontSize: 12 }}>
-                  ▶ LISTEN ON ALL DSPS
+                  {T.release.listen}
                 </a>
               </div>
             </div>
@@ -329,13 +383,13 @@ function VinylVariant({ accent, grain, duotone, showAnnotations }) {
       {/* SHOWS */}
       <section style={{ borderBottom: "1px solid var(--line)" }}>
         <div className="pad pad-y" style={{ maxWidth: 1280, margin: "0 auto", padding: "64px 32px" }}>
-          <div className="mono" style={{ marginBottom: 18 }}>Coming Up</div>
+          <div className="mono" style={{ marginBottom: 18 }}>{T.shows.label}</div>
           <div className="shows-grid">
             <div className="shows-headline display display-xl right-md" style={{ fontSize: 80, lineHeight: .9, textAlign: "right" }}>
-              SUMMER<br/><span className="accent">'26</span><br/>SHOWS
+              {T.shows.line1}<br/><span className="accent">{T.shows.line2}</span><br/>{T.shows.line3}
             </div>
             <ul className="shows-list" style={{ listStyle: "none", padding: 0, margin: 0 }}>
-              {BAND.upcomingShows.map((s, i) => (
+              {T.shows.list.map((s, i) => (
                 <li key={i} className="show-row" style={{ display: "grid", gridTemplateColumns: "140px 1fr auto", gap: 18, padding: "20px 0", borderTop: i === 0 ? "1px solid var(--accent)" : "1px solid var(--line)" }}>
                   <span className="mono">{s.date}</span>
                   <div>
@@ -353,22 +407,22 @@ function VinylVariant({ accent, grain, duotone, showAnnotations }) {
       {/* CONTACT */}
       <section>
         <div className="pad pad-y" style={{ maxWidth: 1280, margin: "0 auto", padding: "72px 32px" }}>
-          <div className="mono" style={{ marginBottom: 18 }}>Booking & Contact</div>
+          <div className="mono" style={{ marginBottom: 18 }}>{T.contact.label}</div>
           <div className="grid-2 grid-end" style={{ display: "grid", gridTemplateColumns: "1.6fr 1fr", gap: 48, alignItems: "end" }}>
             <h2 className="display display-xxl" style={{ fontSize: "clamp(64px, 8vw, 132px)", margin: 0, lineHeight: .88 }}>
-              BOOK US.<br/>
-              <span className="accent">PROMISE</span><br/>
-              IT'S LOUD.
+              {T.contact.line1}<br/>
+              <span className="accent">{T.contact.line2}</span><br/>
+              {T.contact.line3}
             </h2>
             <div>
               <div style={{ display: "grid", gridTemplateColumns: "auto 1fr", gap: "12px 18px" }}>
-                <div className="mono">Booking</div><a href={`mailto:${BAND.contact.booking}`}>{BAND.contact.booking}</a>
-                <div className="mono">Instagram</div><a href={BAND.contact.igUrl} target="_blank" rel="noopener">{BAND.contact.ig}</a>
-                <div className="mono">Label</div><span>{BAND.contact.label}</span>
+                <div className="mono">{T.contact.booking}</div><a href={`mailto:${BAND.contact.booking}`}>{BAND.contact.booking}</a>
+                <div className="mono">{T.contact.instagram}</div><a href={BAND.contact.igUrl} target="_blank" rel="noopener">{BAND.contact.ig}</a>
+                <div className="mono">{T.contact.labelLine}</div><span>{T.contact.labelValue}</span>
               </div>
               <div className="rule ruleAcc" style={{ marginTop: 28 }}/>
               <div className="mono" style={{ marginTop: 12 }}>
-                <span>© 2026 KÖTTBULLAR</span>
+                <span>© 2026 {BAND.name}</span>
               </div>
             </div>
           </div>
