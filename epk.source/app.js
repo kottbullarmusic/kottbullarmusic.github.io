@@ -17,10 +17,10 @@ const COPY = {
     hero:    { videoTitle: "KöTTBULLAR LIVE",
                style: "Style", fyfa: "For fans of",
                hometown: "Munich, DE",
-               shortBio: "Indie / punk / power-pop quartet from Munich." },
+               shortBio: "Indie / punk / power-pop quartet" },
     roles:   { vocals: "Vocals", guitar: "Guitar", bass: "Bass", drums: "Drums" },
     bio:     { label: "Bio", lineup: "The Lineup", est: "EST. 2021 · ACTIVE",
-               line1: "FOUR", line2: "FROM", line3: "MÜNCHEN.",
+               line1: "HOOKS", line2: "NOISE", line3: "FEELINGS.",
                paragraph:
                  "KÖTTBULLAR is a four-piece formed in the back-rooms of Munich's DIY scene — " +
                  "a band that treats the gap between distortion and a melody line like a place " +
@@ -41,7 +41,6 @@ const COPY = {
                  "and emotional weight." },
     shows:   { label: "Coming Up", line1: "SUMMER", line2: "'26", line3: "SHOWS",
                list: [
-                 { date: "02 May 2026", venue: "The Underground Rock",        city: "München, DE", note: "" },
                  { date: "25 Jul 2026", venue: "Kulturspektakel Gauting 2026", city: "Gauting, DE", note: "free entry" },
                ] },
     contact: { label: "Booking & Contact",
@@ -54,10 +53,10 @@ const COPY = {
     hero:    { videoTitle: "KöTTBULLAR LIVE",
                style: "Stil", fyfa: "Für Fans von",
                hometown: "München, DE",
-               shortBio: "Indie / Punk / Power-Pop-Quartett aus München." },
+               shortBio: "Indie / Punk / Power-Pop-Quartett" },
     roles:   { vocals: "Gesang", guitar: "Gitarre", bass: "Bass", drums: "Schlagzeug" },
     bio:     { label: "Bio", lineup: "Die Besetzung", est: "GEGR. 2021 · AKTIV",
-               line1: "VIER", line2: "AUS", line3: "MÜNCHEN.",
+               line1: "HOOKS", line2: "NOISE", line3: "FEELINGS.",
                paragraph:
                  "KÖTTBULLAR ist ein Quartett aus den Hinterzimmern der Münchner DIY-Szene — " +
                  "eine Band, die den Raum zwischen Verzerrung und Melodie wie einen Ort zum " +
@@ -78,7 +77,6 @@ const COPY = {
                  "Sound, eigener Stimmung und eigenem emotionalen Gewicht." },
     shows:   { label: "Demnächst", line1: "SOMMER", line2: "'26", line3: "SHOWS",
                list: [
-                 { date: "02. Mai 2026",  venue: "The Underground Rock",        city: "München, DE", note: "" },
                  { date: "25. Juli 2026", venue: "Kulturspektakel Gauting 2026", city: "Gauting, DE", note: "Eintritt frei" },
                ] },
     contact: { label: "Booking & Kontakt",
