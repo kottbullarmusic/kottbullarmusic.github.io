@@ -22,11 +22,12 @@ const COPY = {
     bio:     { label: "Bio", lineup: "The Lineup", est: "EST. 2021 · ACTIVE",
                line1: "HOOKS", line2: "NOISE", line3: "FEELINGS.",
                paragraph:
-                 "KÖTTBULLAR is a four-piece formed in the back-rooms of Munich's DIY scene — " +
-                 "a band that treats the gap between distortion and a melody line like a place " +
-                 "to live. Alina's vocals carry the weight; Viktor, Liliia and Yaroslav build " +
-                 "the room around her with rock-guitar bones and power-pop joints. Their songs " +
-                 "are short, direct, and catchy." },
+                 "KÖTTBULLAR is an indie rock band driven by melodic hooks, raw energy, and " +
+                 "emotionally direct songwriting. Their sound moves between punchy guitar-led " +
+                 "intensity and more vulnerable, narrative-driven moments, balancing distortion, " +
+                 "tension, and melody without losing immediacy. Focused on high-energy live shows, " +
+                 "the band builds sets around momentum, contrast, and emotional release. Their " +
+                 "songs are short, direct, and catchy." },
     release: { label: "Spotlight Release", line1: "THE FIVE", line2: "Stages Of",
                coverAlt: "The Five Stages Of cover",
                handwriting: "handwriting by Alina ✱",
@@ -58,11 +59,13 @@ const COPY = {
     bio:     { label: "Bio", lineup: "Die Besetzung", est: "GEGR. 2021 · AKTIV",
                line1: "HOOKS", line2: "NOISE", line3: "FEELINGS.",
                paragraph:
-                 "KÖTTBULLAR ist ein Quartett aus den Hinterzimmern der Münchner DIY-Szene — " +
-                 "eine Band, die den Raum zwischen Verzerrung und Melodie wie einen Ort zum " +
-                 "Leben behandelt. Alinas Stimme trägt das Gewicht; Viktor, Liliia und Yaroslav " +
-                 "bauen den Raum um sie herum aus Rockgitarren-Knochen und Power-Pop-Verbindungen. " +
-                 "Ihre Songs sind kurz, direkt und eingängig." },
+                 "KÖTTBULLAR ist eine Indie-Rock-Band, getrieben von melodischen Hooks, roher " +
+                 "Energie und emotional direktem Songwriting. Ihr Sound bewegt sich zwischen " +
+                 "druckvoller, gitarrenlastiger Intensität und verletzlicheren, erzählerischen " +
+                 "Momenten — er balanciert Verzerrung, Spannung und Melodie, ohne an " +
+                 "Unmittelbarkeit zu verlieren. Mit Fokus auf energiegeladene Live-Shows baut " +
+                 "die Band ihre Sets um Momentum, Kontrast und emotionale Entladung. Ihre Songs " +
+                 "sind kurz, direkt und eingängig." },
     release: { label: "Aktuelle Veröffentlichung", line1: "THE FIVE", line2: "Stages Of",
                coverAlt: "Cover von The Five Stages Of",
                handwriting: "Handschrift von Alina ✱",
