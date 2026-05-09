@@ -40,10 +40,12 @@ const COPY = {
                  "around the five stages of grief — Denial, Anger, Bargaining, Depression, and " +
                  "Acceptance — each track becomes its own chapter, with a distinct sound, mood, " +
                  "and emotional weight." },
-    shows:   { label: "Coming Up", line1: "SUMMER", line2: "'26", line3: "SHOWS",
-               list: [
+    shows:   { label: "Coming Up", heading: "SHOWS",
+               // Build-time injection from Bandsintown (see scripts/bundle_epk.py).
+               // The literal between the markers is a fallback for offline builds.
+               list: /*EPK_SHOWS_EN_BEGIN*/[
                  { date: "25 Jul 2026", venue: "Kulturspektakel Gauting 2026", city: "Gauting, DE", note: "free entry" },
-               ] },
+               ]/*EPK_SHOWS_EN_END*/ },
     contact: { label: "Booking & Contact",
                line1: "BOOK US.", line2: "PROMISE", line3: "IT'S LOUD.",
                booking: "Booking", instagram: "Instagram",
@@ -78,10 +80,10 @@ const COPY = {
                  "entstand. Aufgebaut um die fünf Phasen der Trauer — Verleugnung, Wut, Verhandeln, " +
                  "Depression und Akzeptanz — wird jeder Track zu einem eigenen Kapitel, mit eigenem " +
                  "Sound, eigener Stimmung und eigenem emotionalen Gewicht." },
-    shows:   { label: "Demnächst", line1: "SOMMER", line2: "'26", line3: "SHOWS",
-               list: [
+    shows:   { label: "Demnächst", heading: "SHOWS",
+               list: /*EPK_SHOWS_DE_BEGIN*/[
                  { date: "25. Juli 2026", venue: "Kulturspektakel Gauting 2026", city: "Gauting, DE", note: "Eintritt frei" },
-               ] },
+               ]/*EPK_SHOWS_DE_END*/ },
     contact: { label: "Booking & Kontakt",
                line1: "BUCHT UNS.", line2: "VERSPROCHEN", line3: "ES WIRD LAUT.",
                booking: "Booking", instagram: "Instagram",
@@ -387,7 +389,7 @@ function VinylVariant({ accent, grain, duotone, showAnnotations }) {
           <div className="mono" style={{ marginBottom: 18 }}>{T.shows.label}</div>
           <div className="shows-grid">
             <div className="shows-headline display display-xl right-md" style={{ fontSize: 80, lineHeight: .9, textAlign: "right" }}>
-              {T.shows.line1}<br/><span className="accent">{T.shows.line2}</span><br/>{T.shows.line3}
+              {T.shows.heading}
             </div>
             <ul className="shows-list" style={{ listStyle: "none", padding: 0, margin: 0 }}>
               {T.shows.list.map((s, i) => (
