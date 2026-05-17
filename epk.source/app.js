@@ -15,7 +15,7 @@ const COPY = {
   en: {
     runner:  { kit: "ELECTRONIC PRESS KIT · v.05 / 2026", booking: "BOOKING / LABELS" },
     hero:    { videoTitle: "KöTTBULLAR LIVE",
-               style: "Style", fyfa: "For fans of",
+               style: "Style", fyfa: "For fans of", liveVideo: "Live Video",
                hometown: "Munich, DE",
                shortBio: "Indie / punk / power-pop quartet" },
     roles:   { vocals: "Vocals", guitar: "Guitar", bass: "Bass", drums: "Drums" },
@@ -54,7 +54,7 @@ const COPY = {
   de: {
     runner:  { kit: "ELECTRONIC PRESS KIT · v.05 / 2026", booking: "BOOKING / LABELS" },
     hero:    { videoTitle: "KöTTBULLAR LIVE",
-               style: "Stil", fyfa: "Für Fans von",
+               style: "Stil", fyfa: "Für Fans von", liveVideo: "Live-Video",
                hometown: "München, DE",
                shortBio: "Indie / Punk / Power-Pop-Quartett" },
     roles:   { vocals: "Gesang", guitar: "Gitarre", bass: "Bass", drums: "Schlagzeug" },
@@ -111,6 +111,7 @@ const BAND = {
     { name: "Yaroslav", roleKey: "drums" },
   ],
   fyfa: ["Wolf Alice", "Pixies", "The Beths"],
+  liveVideo: { label: "Emergenza Festival", url: "https://www.youtube.com/watch?v=npWC8EbQYCg" },
   releases: [
     { title: "The Five Stages Of", date: "28 Nov 2025", kind: "EP", cover: window.__resources.coverEp, url: "https://onerpm.link/225132004305", catNo: "KB-005" },
   ],
@@ -301,6 +302,12 @@ function VinylVariant({ accent, grain, duotone, showAnnotations }) {
             <div style={{ display: "grid", gridTemplateColumns: "auto 1fr", columnGap: 24, rowGap: 10 }}>
               <div className="mono">{T.hero.style}</div><div>{T.hero.shortBio}</div>
               <div className="mono">{T.hero.fyfa}</div><div>{BAND.fyfa.join(" · ")}</div>
+              <div className="mono">{T.hero.liveVideo}</div>
+              <div>
+                <a href={BAND.liveVideo.url} target="_blank" rel="noopener" style={{ textDecoration: "underline", textUnderlineOffset: 3 }}>
+                  {BAND.liveVideo.label}
+                </a>
+              </div>
             </div>
           </div>
         </div>
