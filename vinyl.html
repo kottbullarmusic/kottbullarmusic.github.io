@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>KöTTBULLAR — The Five Stages Of · Limited Vinyl</title>
+  <meta name="description" content="The Five Stages Of — a five-track concept EP by KöTTBULLAR on yellow vinyl with black inclusions. Limited to 100 individually patterned copies.">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="KöTTBULLAR — The Five Stages Of · Limited Vinyl">
+  <meta property="og:description" content="Five songs. One story. 100 unique records.">
+  <meta property="og:url" content="https://kottbullarmusic.github.io/vinyl.html">
+  <meta property="og:image" content="https://kottbullarmusic.github.io/w3images/vinyl/cover-front.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/w3images/fav/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/w3images/fav/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/w3images/fav/favicon-16x16.png">
+  <link rel="manifest" href="/w3images/fav/site.webmanifest">
+  <link rel="mask-icon" href="/w3images/fav/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="theme-color" content="#0a0a09">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Anton&family=Caveat:wght@500;700&family=Inter:wght@400;500;600&display=swap">
+
+  <style>
+    :root {
+      --bg: #0a0a09;
+      --ink: #e9e7df;
+      --mute: #9a978c;
+      --line: rgba(233, 231, 223, .16);
+      --accent: #D4FF3A;
+      --vinyl: #e2ec3a;
+      --max: 1280px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 17px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 32px; }
+    section { border-bottom: 1px solid var(--line); }
+    .pad-y { padding-top: 88px; padding-bottom: 88px; }
+
+    .mono {
+      font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--mute);
+    }
+
+    .display {
+      font-family: "Anton", "Bebas Neue", "Helvetica Neue", sans-serif;
+      font-weight: 400;
+      line-height: .92;
+      letter-spacing: -.005em;
+      text-transform: uppercase;
+      margin: 0;
+    }
+
+    .hand {
+      font-family: "Caveat", "Comic Sans MS", cursive;
+      font-weight: 700;
+      text-transform: none;
+      letter-spacing: 0;
+    }
+
+    .accent { color: var(--accent); }
+    .rule { border-top: 1px solid var(--line); }
+
+    .label { display: block; margin-bottom: 22px; }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      font-family: "Inter", sans-serif;
+      font-size: 10px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--mute);
+      white-space: nowrap;
+    }
+
+    .chip.dot::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 22px;
+      border: 1px solid var(--accent);
+      border-radius: 999px;
+      font-family: "Inter", sans-serif;
+      font-size: 12px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--ink);
+      background: transparent;
+      cursor: pointer;
+      transition: background .2s, color .2s;
+    }
+
+    .btn:hover, .btn:focus-visible { background: var(--accent); color: #0a0a09; }
+    .btn.solid { background: var(--accent); color: #0a0a09; }
+    .btn.solid:hover, .btn.solid:focus-visible { background: transparent; color: var(--ink); }
+
+    .stamp {
+      display: inline-block;
+      padding: 6px 10px;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      font-family: "Inter", sans-serif;
+      font-size: 10px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      transform: rotate(-2deg);
+    }
+
+    .matrix {
+      background-image:
+        linear-gradient(var(--line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--line) 1px, transparent 1px);
+      background-size: 24px 24px;
+      background-position: -1px -1px;
+    }
+
+    .grain {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 50;
+      mix-blend-mode: overlay;
+      opacity: .5;
+    }
+
+    /* ── Top runner / nav ─────────────────────────────────── */
+    .runner { border-bottom: 1px solid var(--line); }
+    .runner .wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding-top: 14px;
+      padding-bottom: 14px;
+    }
+    .runner nav { display: flex; gap: 18px; flex-wrap: wrap; }
+    .runner nav a { text-decoration: none; }
+    .runner nav a:hover, .runner nav a[aria-current] { color: var(--accent); }
+
+    /* ── Hero ─────────────────────────────────────────────── */
+    .hero .wrap {
+      display: grid;
+      grid-template-columns: 1fr 1.05fr;
+      gap: 56px;
+      align-items: center;
+      padding-top: 64px;
+      padding-bottom: 88px;
+    }
+
+    .wordmark {
+      font-family: "Inter", sans-serif;
+      font-weight: 500;
+      font-size: 15px;
+      letter-spacing: .5em;
+      margin: 0 0 18px;
+    }
+
+    .hero h1 { font-size: clamp(72px, 9vw, 136px); }
+    .hero { overflow: hidden; }
+    .record-pack { margin: 72px 0 0; border: 1px solid var(--line); }
+    .record-pack img { width: 100%; height: auto; }
+    .hero h1 .hand { display: block; font-size: .78em; line-height: 1.05; margin-top: .04em; color: var(--accent); }
+
+    .tagline {
+      font-family: "Anton", sans-serif;
+      text-transform: uppercase;
+      font-size: clamp(22px, 2.2vw, 30px);
+      line-height: 1.1;
+      margin: 40px 0 18px;
+    }
+
+    .hero p { max-width: 520px; margin: 0 0 14px; color: var(--ink); }
+    .hero .chips { display: flex; gap: 10px; flex-wrap: wrap; margin: 26px 0 0; }
+
+    /* Package illustration: sleeve with the record sliding out */
+    .package {
+      position: relative;
+      width: min(100%, 520px);
+      margin-right: 20%;
+      justify-self: center;
+    }
+    .package .disc-holder {
+      position: absolute;
+      top: 3%;
+      left: 34%;
+      width: 94%;
+      aspect-ratio: 1;
+      transition: left .9s cubic-bezier(.2, .8, .2, 1);
+    }
+    .package:hover .disc-holder { left: 40%; }
+    .package .sleeve {
+      position: relative;
+      z-index: 2;
+      aspect-ratio: 1;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, .55), 0 0 0 1px rgba(255, 255, 255, .06);
+    }
+    .package .sleeve img { width: 100%; height: 100%; object-fit: cover; }
+    .package .annot {
+      position: absolute;
+      z-index: 3;
+      left: -6px;
+      bottom: -40px;
+      font-family: "Caveat", cursive;
+      font-size: 24px;
+      color: var(--accent);
+      transform: rotate(-4deg);
+    }
+
+    /* ── Generated vinyl ──────────────────────────────────── */
+    .disc { position: relative; width: 100%; aspect-ratio: 1; border-radius: 50%; }
+    .disc svg { width: 100%; height: 100%; display: block; }
+    /* viewBox is centred on 0,0 — rotate around the SVG user-space origin */
+    .disc .spin { transform-box: view-box; transform-origin: 0 0; animation: spin 1.8s linear infinite; }
+    .disc::after {
+      /* static light sheen on top of the spinning record */
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: conic-gradient(from 20deg, rgba(255, 255, 255, 0) 0deg, rgba(255, 255, 255, .28) 30deg, rgba(255, 255, 255, 0) 70deg,
+          rgba(255, 255, 255, 0) 180deg, rgba(255, 255, 255, .2) 215deg, rgba(255, 255, 255, 0) 255deg);
+      mix-blend-mode: soft-light;
+      pointer-events: none;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── Ticker ───────────────────────────────────────────── */
+    .ticker { background: var(--accent); color: #0a0a09; overflow: hidden; border-bottom: 0; }
+    .ticker .track {
+      display: flex;
+      width: max-content;
+      animation: ticker 38s linear infinite;
+      padding: 12px 0;
+    }
+    .ticker span {
+      font-family: "Anton", sans-serif;
+      font-size: 22px;
+      letter-spacing: .02em;
+      text-transform: uppercase;
+      padding-right: 28px;
+      white-space: nowrap;
+    }
+    @keyframes ticker { to { transform: translateX(-50%); } }
+
+    /* ── Design section ───────────────────────────────────── */
+    .design-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: center;
+    }
+    .design-grid h2 { font-size: clamp(52px, 5.6vw, 88px); margin-bottom: 30px; }
+    .design-grid p { margin: 0 0 16px; max-width: 560px; }
+    .predator {
+      font-family: "Caveat", cursive;
+      font-weight: 700;
+      font-size: clamp(28px, 2.8vw, 38px);
+      line-height: 1.05;
+      color: var(--accent);
+      margin-top: 28px !important;
+      transform: rotate(-1.5deg);
+    }
+    .press { display: flex; flex-direction: column; align-items: center; gap: 22px; }
+    .press .disc { max-width: 520px; }
+    .press-meta {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .copy-no { font-family: "Anton", sans-serif; font-size: 34px; line-height: 1; }
+    .copy-no small { font-family: "Inter", sans-serif; font-size: 12px; color: var(--mute); margin-left: 4px; }
+
+
+    /* ── Tracklist ────────────────────────────────────────── */
+    .tracks-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 72px;
+      align-items: start;
+    }
+    .tracks-grid h2 { font-size: clamp(56px, 6vw, 96px); }
+    .tracks-grid h2 .hand { display: block; color: var(--accent); font-size: .7em; }
+    .tracklist { list-style: none; margin: 0; padding: 0; counter-reset: t; }
+    .tracklist li {
+      display: grid;
+      grid-template-columns: 56px 1fr auto;
+      align-items: center;
+      gap: 16px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .tracklist li:first-child { border-top: 1px solid var(--accent); }
+    .tracklist .n { font-family: "Inter", sans-serif; color: var(--accent); font-size: 13px; }
+    .tracklist .t { font-family: "Anton", sans-serif; font-size: clamp(30px, 3.4vw, 46px); line-height: 1; text-transform: uppercase; }
+    .tracklist .bar { display: flex; gap: 4px; }
+    .tracklist .bar i { width: 14px; height: 10px; border-radius: 1px; background: var(--line); }
+    .tracklist .bar i.on { background: var(--accent); }
+    .tracks-cta { margin-top: 32px; display: flex; gap: 12px; flex-wrap: wrap; }
+
+    /* ── Video & photos ───────────────────────────────────── */
+    .media-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 24px;
+      margin-bottom: 36px;
+      flex-wrap: wrap;
+    }
+    .media-head h2 { font-size: clamp(52px, 6vw, 96px); }
+    .video {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      border: 1px solid var(--line);
+    }
+    .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    /* ── Band ─────────────────────────────────────────────── */
+    .band-photo { margin: 72px 0 0; overflow: hidden; border: 1px solid var(--line); aspect-ratio: 2 / 1; }
+    .band-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .band-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 72px;
+      align-items: start;
+    }
+    .band-grid h2 { font-size: clamp(56px, 6vw, 96px); }
+    .band-grid p { margin: 0 0 16px; font-size: 19px; }
+    .members {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 36px;
+    }
+    .members div { border-top: 1px solid var(--accent); padding-top: 10px; font-size: 22px; line-height: 1.2; }
+
+    /* ── Record specs ─────────────────────────────────────── */
+    .specs-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 72px;
+      align-items: center;
+    }
+    .specs-grid h2 { font-size: clamp(56px, 6vw, 96px); margin-bottom: 30px; }
+    .specs { list-style: none; margin: 0; padding: 0; }
+    .specs li {
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 20px;
+    }
+    .specs li:first-child { border-top: 1px solid var(--accent); }
+    .specs li span { font-family: "Inter", sans-serif; font-size: 12px; color: var(--accent); padding-top: 6px; }
+    .closing {
+      font-family: "Anton", sans-serif;
+      font-size: clamp(36px, 4vw, 60px);
+      line-height: .95;
+      text-transform: uppercase;
+      margin: 0;
+    }
+    .closing .hand { color: var(--accent); font-size: .8em; display: block; margin-top: 8px; }
+    .records-photo { border: 1px solid var(--line); }
+
+    /* ── Stores / contact ─────────────────────────────────── */
+    .stores-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 72px;
+      align-items: end;
+    }
+    .stores-grid h2 { font-size: clamp(56px, 7vw, 120px); line-height: .88; }
+    .stores-grid p { font-size: 19px; margin: 32px 0 0; max-width: 640px; }
+    .contact-list {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 14px 22px;
+      align-items: baseline;
+      font-size: 18px;
+    }
+    .contact-list a { text-decoration: underline; text-underline-offset: 4px; text-decoration-color: var(--accent); }
+    .contact-list a:hover { color: var(--accent); }
+
+    footer .wrap {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding-top: 22px;
+      padding-bottom: 22px;
+    }
+    footer a { text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    /* ── Responsive ───────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .wrap { padding: 0 16px; }
+      .pad-y { padding-top: 56px; padding-bottom: 56px; }
+      .runner .wrap { flex-direction: column; align-items: flex-start; gap: 6px; }
+      .hero .wrap,
+      .design-grid,
+      .tracks-grid,
+      .band-grid,
+      .specs-grid,
+      .stores-grid { grid-template-columns: 1fr; gap: 40px; }
+      .hero .wrap { padding-top: 36px; padding-bottom: 72px; }
+      .package { order: -1; width: 64%; margin: 0 30% 16px 0; justify-self: start; }
+      .press { order: -1; }
+      .members { grid-template-columns: repeat(2, 1fr); }
+      .tracklist li { grid-template-columns: 40px 1fr auto; }
+      .tracklist .bar i { width: 8px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .disc .spin, .ticker .track { animation: none; }
+      .package .disc-holder { transition: none; }
+    }
+  </style>
+</head>
+
+<body>
+  <svg class="grain" aria-hidden="true">
+    <filter id="noise">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" />
+      <feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.45 0" />
+    </filter>
+    <rect width="100%" height="100%" filter="url(#noise)" />
+  </svg>
+
+  <!-- Runner / navigation -->
+  <header class="runner">
+    <div class="wrap">
+      <div class="mono">KöTTBULLAR · Limited vinyl edition · 100 copies</div>
+      <nav class="mono" aria-label="Site">
+        <a href="/">Home</a>
+        <a href="vinyl.html" aria-current="page">Vinyl</a>
+        <a href="press.html">Press</a>
+        <a href="epk.html">EPK</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap">
+        <div>
+          <span class="mono label"><span class="accent">●</span>&nbsp; New · Limited vinyl release</span>
+          <p class="wordmark">KöTTBULLAR</p>
+          <h1 class="display">The Five <span class="hand">Stages Of</span></h1>
+
+          <p class="tagline">Five songs. One story. <span class="accent">100 unique records.</span></p>
+
+          <p>An independent vinyl release from Munich, Germany.</p>
+          <p>The Five Stages Of is a five-track concept EP following the emotional journey of coming to terms with a
+            life-changing experience, from denial to acceptance.</p>
+          <p><strong>Limited to just 100 vinyl copies.</strong></p>
+
+          <div class="chips">
+            <span class="chip dot">5 tracks</span>
+            <span class="chip dot">100 copies</span>
+            <span class="chip dot">Yellow / black inclusions</span>
+          </div>
+        </div>
+
+        <div class="package" aria-label="The Five Stages Of — sleeve with yellow vinyl">
+          <div class="disc-holder">
+            <div class="disc" data-copy="1" aria-hidden="true"></div>
+          </div>
+          <div class="sleeve">
+            <img src="w3images/vinyl/cover-front.jpg" width="1024" height="1024"
+              alt="Front cover of The Five Stages Of by KöTTBULLAR with a 'Special edition coloured vinyl' sticker">
+          </div>
+          <div class="annot">33⅓ rpm ✱</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ticker -->
+    <section class="ticker" aria-hidden="true">
+      <div class="track" id="ticker"></div>
+    </section>
+
+    <!-- NOT YOUR EVERYDAY YELLOW VINYL -->
+    <section class="matrix" id="design">
+      <div class="wrap pad-y">
+        <div class="design-grid">
+          <div class="press">
+            <div class="disc" id="pressDisc" data-copy="37" role="img"
+              aria-label="Illustration of a yellow vinyl record with a randomly generated black inclusion pattern"></div>
+            <div class="press-meta">
+              <div class="copy-no">#<span id="copyNo">037</span><small>/ 100</small></div>
+              <button class="btn" id="pressAnother" type="button">Press another copy ↻</button>
+            </div>
+            <div class="mono">Illustration · every copy has its own pattern</div>
+          </div>
+
+          <div>
+            <span class="mono label">The design</span>
+            <h2 class="display">Not your everyday <span class="accent">yellow vinyl</span></h2>
+            <p>The design reflects the idea behind the music: even a single drop of darkness, like a bad mood, can change
+              the whole picture. On yellow vinyl, these dark inclusions create a unique pattern on every record, a visual
+              reminder that no two experiences are ever quite the same.</p>
+            <p class="predator">The result is something between abstract art and the unblinking eye of a predator.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRACKLIST -->
+    <section id="tracklist">
+      <div class="wrap pad-y">
+        <div class="tracks-grid">
+          <div>
+            <span class="mono label">Tracklist</span>
+            <h2 class="display">Five songs. <span class="hand">One story.</span></h2>
+            <p class="mono" style="margin-top:24px">From denial to acceptance</p>
+          </div>
+          <div>
+            <ol class="tracklist">
+              <li><span class="n">01</span><span class="t">Denial</span><span class="bar" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i><i></i></span></li>
+              <li><span class="n">02</span><span class="t">Anger</span><span class="bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span></li>
+              <li><span class="n">03</span><span class="t">Bargaining</span><span class="bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></li>
+              <li><span class="n">04</span><span class="t">Depression</span><span class="bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></li>
+              <li><span class="n">05</span><span class="t">Acceptance</span><span class="bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></li>
+            </ol>
+            <div class="tracks-cta">
+              <a class="btn" href="https://onerpm.link/225132004305" target="_blank" rel="noopener">▶ Listen on all platforms</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIDEO & PHOTOS -->
+    <section id="media">
+      <div class="wrap pad-y">
+        <div class="media-head">
+          <div>
+            <span class="mono label">Video</span>
+            <h2 class="display">See it. <span class="accent">Hear it.</span></h2>
+          </div>
+          <a class="mono" href="https://www.youtube.com/channel/UClygeOR7txwr3sTwhkuaAzw" target="_blank"
+            rel="noopener">More on YouTube →</a>
+        </div>
+
+        <div class="video">
+          <iframe src="https://www.youtube-nocookie.com/embed/T_eKWe5TkXg?rel=0&amp;modestbranding=1"
+            title="KöTTBULLAR — Live Show Highlights" loading="lazy"
+            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEET KöTTBULLAR -->
+    <section class="matrix" id="band">
+      <div class="wrap pad-y">
+        <div class="band-grid">
+          <div>
+            <span class="mono label">The band</span>
+            <h2 class="display">Meet <span class="accent">KöTTBULLAR</span></h2>
+          </div>
+          <div>
+            <p>KöTTBULLAR are a Munich-based indie rock band combining punk energy, power-pop melodies and raw attitude.</p>
+            <p>In 2026, the band played around ten shows across Germany, including Berlin. The vinyl release gives fans a
+              physical copy of the music to take home and keep.</p>
+            <div class="members">
+              <div>Alina<br><span class="mono">Vocals</span></div>
+              <div>Viktor<br><span class="mono">Guitar</span></div>
+              <div>Liliia<br><span class="mono">Bass</span></div>
+              <div>Yaroslav<br><span class="mono">Drums</span></div>
+            </div>
+          </div>
+        </div>
+
+        <figure class="band-photo">
+          <img src="w3images/slide-0.jpg" width="2400" height="1200" loading="lazy"
+            alt="KöTTBULLAR performing live under stage lights">
+        </figure>
+      </div>
+    </section>
+
+    <!-- THE RECORD -->
+    <section id="record">
+      <div class="wrap pad-y">
+        <div class="specs-grid">
+          <div>
+            <span class="mono label">Specs</span>
+            <h2 class="display">The record</h2>
+            <ul class="specs">
+              <li><span>01</span>5-track concept EP</li>
+              <li><span>02</span>100 individually patterned copies</li>
+              <li><span>03</span>Yellow vinyl with black inclusions</li>
+              <li><span>04</span>Independently released and shipped from Germany</li>
+            </ul>
+          </div>
+          <div>
+            <p class="closing">One story. <span class="hand">One hundred different records.</span></p>
+            <div style="margin-top:28px"><span class="stamp">Edition of 100</span></div>
+          </div>
+        </div>
+
+        <figure class="record-pack">
+          <img src="w3images/vinyl/package.jpg" width="1886" height="1020" loading="lazy"
+            alt="The Five Stages Of package: gatefold sleeve, inner sleeve, two yellow records and a sealed copy">
+        </figure>
+      </div>
+    </section>
+
+    <!-- FOR INDEPENDENT RECORD STORES -->
+    <section id="stores">
+      <div class="wrap pad-y">
+        <span class="mono label">Retail</span>
+        <div class="stores-grid">
+          <div>
+            <h2 class="display">For independent <span class="accent">record stores</span></h2>
+            <p>We actively support record stores selling our release by featuring them on our social media and directing
+              fans to their shops.</p>
+          </div>
+          <div>
+            <div class="mono" style="margin-bottom:18px">Contact</div>
+            <div class="contact-list">
+              <span class="mono">Email</span>
+              <a href="mailto:koettbullar.music@gmail.com?subject=The%20Five%20Stages%20Of%20%E2%80%94%20vinyl">koettbullar.music@gmail.com</a>
+              <span class="mono">Instagram</span>
+              <a href="https://www.instagram.com/kottbullar.music/" target="_blank" rel="noopener">@kottbullar.music</a>
+              <span class="mono">Spotify</span>
+              <a href="https://open.spotify.com/artist/0RkvwB5IWAviv0qhBsB3GW" target="_blank" rel="noopener">KöTTBULLAR</a>
+              <span class="mono">YouTube</span>
+              <a href="https://www.youtube.com/channel/UClygeOR7txwr3sTwhkuaAzw" target="_blank" rel="noopener">@kottbullarmusic</a>
+            </div>
+            <div style="margin-top:32px">
+              <a class="btn solid" href="mailto:koettbullar.music@gmail.com?subject=The%20Five%20Stages%20Of%20%E2%80%94%20vinyl">Write to us →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap mono">
+      <span>© 2026 KöTTBULLAR · Self-released</span>
+      <a href="/">← kottbullarmusic.github.io</a>
+    </div>
+  </footer>
+
+  <script>
+    // Ticker text (duplicated so the CSS loop is seamless)
+    (function () {
+      var words = ["Limited to 100 copies", "Yellow vinyl", "Black inclusions", "5-track concept EP",
+        "No two alike", "Denial", "Anger", "Bargaining", "Depression", "Acceptance"];
+      var html = words.map(function (w) { return "<span>" + w + " ✱</span>"; }).join("");
+      document.getElementById("ticker").innerHTML = html + html + html + html;
+    })();
+
+    // ── Procedural yellow vinyl with black inclusions ─────────────────────────
+    // Each copy number seeds its own pattern, like the real pressing.
+    var SVGNS = "http://www.w3.org/2000/svg";
+
+    function rng(seed) { // mulberry32
+      return function () {
+        seed |= 0; seed = seed + 0x6D2B79F5 | 0;
+        var t = Math.imul(seed ^ seed >>> 15, 1 | seed);
+        t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+        return ((t ^ t >>> 14) >>> 0) / 4294967296;
+      };
+    }
+
+    function el(name, attrs, parent) {
+      var n = document.createElementNS(SVGNS, name);
+      for (var k in attrs) n.setAttribute(k, attrs[k]);
+      if (parent) parent.appendChild(n);
+      return n;
+    }
+
+    function drawDisc(container, copy) {
+      var r = rng(copy * 7919 + 13);
+      var uid = "d" + Math.floor(Math.random() * 1e9);
+      container.innerHTML = "";
+      var svg = el("svg", { viewBox: "-500 -500 1000 1000", "aria-hidden": "true" }, container);
+      var defs = el("defs", {}, svg);
+      var clip = el("clipPath", { id: uid + "c" }, defs);
+      el("circle", { r: 488 }, clip);
+      var goo = el("filter", { id: uid + "g", x: "-10%", y: "-10%", width: "120%", height: "120%" }, defs);
+      el("feGaussianBlur", { stdDeviation: 5 }, goo);
+      el("feColorMatrix", { values: "0 0 0 0 0.02  0 0 0 0 0.02  0 0 0 0 0.01  0 0 0 22 -9" }, goo);
+      var grad = el("radialGradient", { id: uid + "y" }, defs);
+      el("stop", { offset: "0.3", "stop-color": "#eef24a" }, grad);
+      el("stop", { offset: "1", "stop-color": "#d3dd2c" }, grad);
+
+      var spin = el("g", { "class": "spin" }, svg);
+      el("circle", { r: 494, fill: "#1a1a14" }, spin);
+      el("circle", { r: 488, fill: "url(#" + uid + "y)" }, spin);
+
+      // Inclusions: radial streaks bleeding outward from the label
+      var ink = el("g", { "clip-path": "url(#" + uid + "c)" }, spin);
+      var blobs = el("g", { filter: "url(#" + uid + "g)", fill: "#0b0b08", stroke: "#0b0b08", "stroke-linecap": "round" }, ink);
+      var density = 120 + Math.floor(r() * 90);
+      for (var i = 0; i < density; i++) {
+        var a = r() * Math.PI * 2;
+        var start = 150 + Math.pow(r(), 1.8) * 300;
+        var len = 18 + Math.pow(r(), 1.3) * 190 * (1 - (start - 150) / 420);
+        var w = 5 + r() * 16;
+        var bend = (r() - .5) * .08;
+        var x1 = Math.cos(a) * start, y1 = Math.sin(a) * start;
+        var x2 = Math.cos(a + bend) * (start + len), y2 = Math.sin(a + bend) * (start + len);
+        el("line", { x1: x1.toFixed(1), y1: y1.toFixed(1), x2: x2.toFixed(1), y2: y2.toFixed(1), "stroke-width": w.toFixed(1) }, blobs);
+        if (r() < .45) { // droplet at the tip
+          el("circle", { cx: (Math.cos(a + bend) * (start + len + 10 + r() * 30)).toFixed(1), cy: (Math.sin(a + bend) * (start + len + 10 + r() * 30)).toFixed(1), r: (2 + r() * 7).toFixed(1), stroke: "none" }, blobs);
+        }
+      }
+      // dense dark ring hugging the label
+      for (var j = 0; j < 70; j++) {
+        var b = r() * Math.PI * 2, rr = 150 + r() * 40;
+        el("circle", { cx: (Math.cos(b) * rr).toFixed(1), cy: (Math.sin(b) * rr).toFixed(1), r: (8 + r() * 18).toFixed(1), stroke: "none" }, blobs);
+      }
+
+      // Grooves
+      var grooves = el("g", { fill: "none", stroke: "#000", "stroke-opacity": ".07", "stroke-width": "1.2" }, spin);
+      for (var g = 190; g < 486; g += 5) el("circle", { r: g }, grooves);
+      el("circle", { r: 300, fill: "none", stroke: "#000", "stroke-opacity": ".18", "stroke-width": "3" }, spin);
+      el("circle", { r: 486, fill: "none", stroke: "#fff", "stroke-opacity": ".25", "stroke-width": "2" }, spin);
+
+      // Label
+      el("circle", { r: 150, fill: "#0d0d0b" }, spin);
+      el("circle", { r: 150, fill: "none", stroke: "#fff", "stroke-opacity": ".08", "stroke-width": "2" }, spin);
+      var t1 = el("text", { y: -72, "text-anchor": "middle", fill: "#e9e7df", "font-family": "Inter, sans-serif", "font-size": "17", "letter-spacing": "6" }, spin);
+      t1.textContent = "KöTTBULLAR";
+      var t2 = el("text", { x: -62, y: 58, fill: "#e9e7df", "font-family": "Caveat, cursive", "font-size": "30", "font-weight": "700", transform: "rotate(-8 -62 58)" }, spin);
+      t2.textContent = "The Five";
+      var t3 = el("text", { x: -54, y: 88, fill: "#e9e7df", "font-family": "Caveat, cursive", "font-size": "30", "font-weight": "700", transform: "rotate(-8 -54 88)" }, spin);
+      t3.textContent = "Stages Of";
+      ["Denial", "Anger", "Bargaining", "Depression", "Acceptance"].forEach(function (s, k) {
+        var tt = el("text", { x: 48, y: -26 + k * 16, fill: "#9a978c", "font-family": "Inter, sans-serif", "font-size": "10" }, spin);
+        tt.textContent = s;
+      });
+      var cn = el("text", { y: 128, "text-anchor": "middle", fill: "#D4FF3A", "font-family": "Inter, sans-serif", "font-size": "11", "letter-spacing": "2" }, spin);
+      cn.textContent = "NO. " + String(copy).padStart(3, "0") + " / 100";
+      el("circle", { r: 9, fill: "#0a0a09" }, spin);
+      el("circle", { r: 9, fill: "none", stroke: "#fff", "stroke-opacity": ".35", "stroke-width": "1.5" }, spin);
+    }
+
+    document.querySelectorAll(".disc[data-copy]").forEach(function (d) {
+      drawDisc(d, parseInt(d.getAttribute("data-copy"), 10));
+    });
+
+    var pressDisc = document.getElementById("pressDisc");
+    var copyNo = document.getElementById("copyNo");
+    document.getElementById("pressAnother").addEventListener("click", function () {
+      var current = parseInt(copyNo.textContent, 10);
+      var next;
+      do { next = 1 + Math.floor(Math.random() * 100); } while (next === current);
+      copyNo.textContent = String(next).padStart(3, "0");
+      drawDisc(pressDisc, next);
+    });
+  </script>
+</body>
+
+</html>
