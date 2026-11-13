@@ -179,6 +179,7 @@
     .runner nav { display: flex; gap: 18px; flex-wrap: wrap; }
     .runner nav a { text-decoration: none; }
     .runner nav a:hover, .runner nav a[aria-current] { color: var(--accent); }
+    .runner .lang { padding-left: 18px; border-left: 1px solid var(--line); white-space: nowrap; }
 
     /* ── Hero ─────────────────────────────────────────────── */
     .hero .wrap {
@@ -475,13 +476,14 @@
   <!-- Runner / navigation -->
   <header class="runner">
     <div class="wrap">
-      <div class="mono">KöTTBULLAR · Limited vinyl edition · 100 copies</div>
+      <div class="mono" data-i18n="runner">KöTTBULLAR · Limited vinyl edition · 100 copies</div>
       <nav class="mono" aria-label="Site">
-        <a href="/">Home</a>
+        <a href="/" data-i18n="navHome">Home</a>
         <a href="vinyl.html" aria-current="page">Vinyl</a>
-        <a href="press.html">Press</a>
+        <a href="press.html" data-i18n="navPress">Press</a>
         <a href="epk.html">EPK</a>
-        <a href="contact.html">Contact</a>
+        <a href="contact.html" data-i18n="navContact">Contact</a>
+        <span class="lang" aria-label="Language"><a href="?lang=en" hreflang="en" data-lang="en">EN</a> / <a href="?lang=de" hreflang="de" data-lang="de">DE</a></span>
       </nav>
     </div>
   </header>
@@ -491,30 +493,30 @@
     <section class="hero">
       <div class="wrap">
         <div>
-          <span class="mono label"><span class="accent">●</span>&nbsp; New · Limited vinyl release</span>
+          <span class="mono label" data-i18n="heroLabel"><span class="accent">●</span>&nbsp; New · Limited vinyl release</span>
           <p class="wordmark">KöTTBULLAR</p>
           <h1 class="display">The Five <span class="hand">Stages Of</span></h1>
 
-          <p class="tagline">Five songs. One story. <span class="accent">100 unique records.</span></p>
+          <p class="tagline" data-i18n="tagline">Five songs. One story. <span class="accent">100 unique records.</span></p>
 
-          <p>An independent vinyl release from Munich, Germany.</p>
-          <p>The Five Stages Of is a five-track concept EP following the emotional journey of coming to terms with a
+          <p data-i18n="intro1">An independent vinyl release from Munich, Germany.</p>
+          <p data-i18n="intro2">The Five Stages Of is a five-track concept EP following the emotional journey of coming to terms with a
             life-changing experience, from denial to acceptance.</p>
-          <p><strong>Limited to just 100 vinyl copies.</strong></p>
+          <p data-i18n="intro3"><strong>Limited to just 100 vinyl copies.</strong></p>
 
           <div class="chips">
-            <span class="chip dot">5 tracks</span>
-            <span class="chip dot">100 copies</span>
-            <span class="chip dot">Yellow / black inclusions</span>
+            <span class="chip dot" data-i18n="chip1">5 tracks</span>
+            <span class="chip dot" data-i18n="chip2">100 copies</span>
+            <span class="chip dot" data-i18n="chip3">Yellow / black inclusions</span>
           </div>
         </div>
 
-        <div class="package" aria-label="The Five Stages Of — sleeve with yellow vinyl">
+        <div class="package" data-i18n-aria-label="packageAria" aria-label="The Five Stages Of — sleeve with yellow vinyl">
           <div class="disc-holder">
             <div class="disc" data-copy="1" aria-hidden="true"></div>
           </div>
           <div class="sleeve">
-            <img src="w3images/vinyl/cover-front.jpg" width="1024" height="1024"
+            <img src="w3images/vinyl/cover-front.jpg" width="1024" height="1024" data-i18n-alt="coverAlt"
               alt="Front cover of The Five Stages Of by KöTTBULLAR with a 'Special edition coloured vinyl' sticker">
           </div>
           <div class="annot">33⅓ rpm ✱</div>
@@ -532,22 +534,22 @@
       <div class="wrap pad-y">
         <div class="design-grid">
           <div class="press">
-            <div class="disc" id="pressDisc" data-copy="37" role="img"
+            <div class="disc" id="pressDisc" data-copy="37" role="img" data-i18n-aria-label="pressAria"
               aria-label="Illustration of a yellow vinyl record with a randomly generated black inclusion pattern"></div>
             <div class="press-meta">
               <div class="copy-no">#<span id="copyNo">037</span><small>/ 100</small></div>
-              <button class="btn" id="pressAnother" type="button">Press another copy ↻</button>
+              <button class="btn" id="pressAnother" type="button" data-i18n="pressAnother">Press another copy ↻</button>
             </div>
-            <div class="mono">Illustration · every copy has its own pattern</div>
+            <div class="mono" data-i18n="pressNote">Illustration · every copy has its own pattern</div>
           </div>
 
           <div>
-            <span class="mono label">The design</span>
-            <h2 class="display">Not your everyday <span class="accent">yellow vinyl</span></h2>
-            <p>The design reflects the idea behind the music: even a single drop of darkness, like a bad mood, can change
+            <span class="mono label" data-i18n="designLabel">The design</span>
+            <h2 class="display" data-i18n="designH">Not your everyday <span class="accent">yellow vinyl</span></h2>
+            <p data-i18n="designP">The design reflects the idea behind the music: even a single drop of darkness, like a bad mood, can change
               the whole picture. On yellow vinyl, these dark inclusions create a unique pattern on every record, a visual
               reminder that no two experiences are ever quite the same.</p>
-            <p class="predator">The result is something between abstract art and the unblinking eye of a predator.</p>
+            <p class="predator" data-i18n="predator">The result is something between abstract art and the unblinking eye of a predator.</p>
           </div>
         </div>
       </div>
@@ -558,9 +560,9 @@
       <div class="wrap pad-y">
         <div class="tracks-grid">
           <div>
-            <span class="mono label">Tracklist</span>
-            <h2 class="display">Five songs. <span class="hand">One story.</span></h2>
-            <p class="mono" style="margin-top:24px">From denial to acceptance</p>
+            <span class="mono label" data-i18n="tracklistLabel">Tracklist</span>
+            <h2 class="display" data-i18n="tracksH">Five songs. <span class="hand">One story.</span></h2>
+            <p class="mono" style="margin-top:24px" data-i18n="fromTo">From denial to acceptance</p>
           </div>
           <div>
             <ol class="tracklist">
@@ -571,7 +573,7 @@
               <li><span class="n">05</span><span class="t">Acceptance</span><span class="bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></li>
             </ol>
             <div class="tracks-cta">
-              <a class="btn" href="https://onerpm.link/225132004305" target="_blank" rel="noopener">▶ Listen on all platforms</a>
+              <a class="btn" href="https://onerpm.link/225132004305" target="_blank" rel="noopener" data-i18n="listen">▶ Listen on all platforms</a>
             </div>
           </div>
         </div>
@@ -584,10 +586,10 @@
         <div class="media-head">
           <div>
             <span class="mono label">Video</span>
-            <h2 class="display">See it. <span class="accent">Hear it.</span></h2>
+            <h2 class="display" data-i18n="videoH">See it. <span class="accent">Hear it.</span></h2>
           </div>
           <a class="mono" href="https://www.youtube.com/channel/UClygeOR7txwr3sTwhkuaAzw" target="_blank"
-            rel="noopener">More on YouTube →</a>
+            rel="noopener" data-i18n="moreYT">More on YouTube →</a>
         </div>
 
         <div class="video">
@@ -604,24 +606,24 @@
       <div class="wrap pad-y">
         <div class="band-grid">
           <div>
-            <span class="mono label">The band</span>
-            <h2 class="display">Meet <span class="accent">KöTTBULLAR</span></h2>
+            <span class="mono label" data-i18n="bandLabel">The band</span>
+            <h2 class="display" data-i18n="bandH">Meet <span class="accent">KöTTBULLAR</span></h2>
           </div>
           <div>
-            <p>KöTTBULLAR are a Munich-based indie rock band combining punk energy, power-pop melodies and raw attitude.</p>
-            <p>In 2026, the band played around ten shows across Germany, including Berlin. The vinyl release gives fans a
+            <p data-i18n="band1">KöTTBULLAR are a Munich-based indie rock band combining punk energy, power-pop melodies and raw attitude.</p>
+            <p data-i18n="band2">In 2026, the band played around ten shows across Germany, including Berlin. The vinyl release gives fans a
               physical copy of the music to take home and keep.</p>
             <div class="members">
-              <div>Alina<br><span class="mono">Vocals</span></div>
-              <div>Viktor<br><span class="mono">Guitar</span></div>
-              <div>Liliia<br><span class="mono">Bass</span></div>
-              <div>Yaroslav<br><span class="mono">Drums</span></div>
+              <div>Alina<br><span class="mono" data-i18n="roleVocals">Vocals</span></div>
+              <div>Viktor<br><span class="mono" data-i18n="roleGuitar">Guitar</span></div>
+              <div>Liliia<br><span class="mono" data-i18n="roleBass">Bass</span></div>
+              <div>Yaroslav<br><span class="mono" data-i18n="roleDrums">Drums</span></div>
             </div>
           </div>
         </div>
 
         <figure class="band-photo">
-          <img src="w3images/slide-0.jpg" width="2400" height="1200" loading="lazy"
+          <img src="w3images/slide-0.jpg" width="2400" height="1200" loading="lazy" data-i18n-alt="bandPhotoAlt"
             alt="KöTTBULLAR performing live under stage lights">
         </figure>
       </div>
@@ -632,23 +634,23 @@
       <div class="wrap pad-y">
         <div class="specs-grid">
           <div>
-            <span class="mono label">Specs</span>
-            <h2 class="display">The record</h2>
+            <span class="mono label" data-i18n="specsLabel">Specs</span>
+            <h2 class="display" data-i18n="recordH">The record</h2>
             <ul class="specs">
-              <li><span>01</span>5-track concept EP</li>
-              <li><span>02</span>100 individually patterned copies</li>
-              <li><span>03</span>Yellow vinyl with black inclusions</li>
-              <li><span>04</span>Independently released and shipped from Germany</li>
+              <li data-i18n="spec1"><span>01</span>5-track concept EP</li>
+              <li data-i18n="spec2"><span>02</span>100 individually patterned copies</li>
+              <li data-i18n="spec3"><span>03</span>Yellow vinyl with black inclusions</li>
+              <li data-i18n="spec4"><span>04</span>Independently released and shipped from Germany</li>
             </ul>
           </div>
           <div>
-            <p class="closing">One story. <span class="hand">One hundred different records.</span></p>
-            <div style="margin-top:28px"><span class="stamp">Edition of 100</span></div>
+            <p class="closing" data-i18n="closing">One story. <span class="hand">One hundred different records.</span></p>
+            <div style="margin-top:28px"><span class="stamp" data-i18n="stamp">Edition of 100</span></div>
           </div>
         </div>
 
         <figure class="record-pack">
-          <img src="w3images/vinyl/package.jpg" width="1886" height="1020" loading="lazy"
+          <img src="w3images/vinyl/package.jpg" width="1886" height="1020" loading="lazy" data-i18n-alt="packageAlt"
             alt="The Five Stages Of package: gatefold sleeve, inner sleeve, two yellow records and a sealed copy">
         </figure>
       </div>
@@ -657,17 +659,17 @@
     <!-- FOR INDEPENDENT RECORD STORES -->
     <section id="stores">
       <div class="wrap pad-y">
-        <span class="mono label">Retail</span>
+        <span class="mono label" data-i18n="retailLabel">Retail</span>
         <div class="stores-grid">
           <div>
-            <h2 class="display">For independent <span class="accent">record stores</span></h2>
-            <p>We actively support record stores selling our release by featuring them on our social media and directing
+            <h2 class="display" data-i18n="storesH">For independent <span class="accent">record stores</span></h2>
+            <p data-i18n="storesP">We actively support record stores selling our release by featuring them on our social media and directing
               fans to their shops.</p>
           </div>
           <div>
-            <div class="mono" style="margin-bottom:18px">Contact</div>
+            <div class="mono" style="margin-bottom:18px" data-i18n="contactLabel">Contact</div>
             <div class="contact-list">
-              <span class="mono">Email</span>
+              <span class="mono" data-i18n="emailLabel">Email</span>
               <a href="mailto:koettbullar.music@gmail.com?subject=The%20Five%20Stages%20Of%20%E2%80%94%20vinyl">koettbullar.music@gmail.com</a>
               <span class="mono">Instagram</span>
               <a href="https://www.instagram.com/kottbullar.music/" target="_blank" rel="noopener">@kottbullar.music</a>
@@ -677,7 +679,7 @@
               <a href="https://www.youtube.com/channel/UClygeOR7txwr3sTwhkuaAzw" target="_blank" rel="noopener">@kottbullarmusic</a>
             </div>
             <div style="margin-top:32px">
-              <a class="btn solid" href="mailto:koettbullar.music@gmail.com?subject=The%20Five%20Stages%20Of%20%E2%80%94%20vinyl">Write to us →</a>
+              <a class="btn solid" href="mailto:koettbullar.music@gmail.com?subject=The%20Five%20Stages%20Of%20%E2%80%94%20vinyl" data-i18n="writeUs">Write to us →</a>
             </div>
           </div>
         </div>
@@ -687,15 +689,102 @@
 
   <footer>
     <div class="wrap mono">
-      <span>© 2026 KöTTBULLAR · Self-released</span>
+      <span data-i18n="footer">© 2026 KöTTBULLAR · Self-released</span>
       <a href="/">← kottbullarmusic.github.io</a>
     </div>
   </footer>
 
   <script>
+    // ── Language: English is written in the HTML; German replaces it ─────────
+    // ?lang=de / ?lang=en wins; otherwise German browsers get German.
+    var LANG = (function () {
+      var q = new URLSearchParams(location.search).get("lang");
+      if (q === "de" || q === "en") return q;
+      var b = (navigator.languages && navigator.languages[0]) || navigator.language || "en";
+      return b.toLowerCase().indexOf("de") === 0 ? "de" : "en";
+    })();
+
+    var DE = {
+      title: "KöTTBULLAR — The Five Stages Of · Limitiertes Vinyl",
+      description: "The Five Stages Of – die Konzept-EP von KöTTBULLAR mit fünf Tracks auf gelbem Vinyl mit schwarzen Einschlüssen. Limitiert auf 100 Exemplare, jedes mit eigenem Muster.",
+      runner: "KöTTBULLAR · Limitierte Vinyl-Edition · 100 Exemplare",
+      navHome: "Start",
+      navPress: "Presse",
+      navContact: "Kontakt",
+      heroLabel: '<span class="accent">●</span>&nbsp; Neu · Limitierte Vinyl-Veröffentlichung',
+      tagline: 'Fünf Songs. Eine Geschichte. <span class="accent">100 einzigartige Platten.</span>',
+      intro1: "Eine unabhängige Vinyl-Veröffentlichung aus München.",
+      intro2: "The Five Stages Of ist eine Konzept-EP mit fünf Tracks über den emotionalen Weg, mit einer lebensverändernden Erfahrung ins Reine zu kommen – von der Verleugnung bis zur Akzeptanz.",
+      intro3: "<strong>Limitiert auf nur 100 Exemplare.</strong>",
+      chip1: "5 Tracks",
+      chip2: "100 Exemplare",
+      chip3: "Gelb / schwarze Einschlüsse",
+      packageAria: "The Five Stages Of – Hülle mit gelber Schallplatte",
+      coverAlt: "Frontcover von The Five Stages Of von KöTTBULLAR mit dem Sticker „Special edition coloured vinyl“",
+      pressAria: "Illustration einer gelben Schallplatte mit zufällig erzeugtem Muster aus schwarzen Einschlüssen",
+      pressAnother: "Weiteres Exemplar pressen ↻",
+      pressNote: "Illustration · jedes Exemplar hat sein eigenes Muster",
+      designLabel: "Das Design",
+      designH: 'Kein gewöhnliches <span class="accent">gelbes Vinyl</span>',
+      designP: "Das Design spiegelt die Idee hinter der Musik wider: Schon ein einziger Tropfen Dunkelheit, wie eine schlechte Laune, kann das ganze Bild verändern. Auf gelbem Vinyl bilden diese dunklen Einschlüsse auf jeder Platte ein einzigartiges Muster – eine visuelle Erinnerung daran, dass keine zwei Erfahrungen jemals ganz gleich sind.",
+      predator: "Das Ergebnis liegt irgendwo zwischen abstrakter Kunst und dem starren Blick eines Raubtiers.",
+      tracklistLabel: "Trackliste",
+      tracksH: 'Fünf Songs. <span class="hand">Eine Geschichte.</span>',
+      fromTo: "Von der Verleugnung bis zur Akzeptanz",
+      listen: "▶ Auf allen Plattformen hören",
+      videoH: 'Sehen. <span class="accent">Hören.</span>',
+      moreYT: "Mehr auf YouTube →",
+      bandLabel: "Die Band",
+      bandH: 'Das sind <span class="accent">KöTTBULLAR</span>',
+      band1: "KöTTBULLAR sind eine Indie-Rock-Band aus München, die Punk-Energie, Power-Pop-Melodien und rohe Attitüde verbindet.",
+      band2: "2026 spielte die Band rund zehn Konzerte in ganz Deutschland, darunter in Berlin. Mit der Vinyl-Veröffentlichung bekommen Fans die Musik als physisches Exemplar zum Mitnehmen und Behalten.",
+      roleVocals: "Gesang",
+      roleGuitar: "Gitarre",
+      roleBass: "Bass",
+      roleDrums: "Schlagzeug",
+      bandPhotoAlt: "KöTTBULLAR live auf der Bühne im Scheinwerferlicht",
+      specsLabel: "Details",
+      recordH: "Die Platte",
+      spec1: "<span>01</span>Konzept-EP mit 5 Tracks",
+      spec2: "<span>02</span>100 Exemplare, jedes mit eigenem Muster",
+      spec3: "<span>03</span>Gelbes Vinyl mit schwarzen Einschlüssen",
+      spec4: "<span>04</span>Unabhängig veröffentlicht und aus Deutschland versendet",
+      closing: 'Eine Geschichte. <span class="hand">Hundert verschiedene Platten.</span>',
+      stamp: "Auflage: 100",
+      packageAlt: "Das Paket von The Five Stages Of: Klappcover, Innenhülle, zwei gelbe Platten und ein eingeschweißtes Exemplar",
+      retailLabel: "Handel",
+      storesH: 'Für unabhängige <span class="accent">Plattenläden</span>',
+      storesP: "Wir unterstützen Plattenläden, die unsere Platte verkaufen, aktiv: Wir stellen sie auf unseren Social-Media-Kanälen vor und schicken Fans in ihre Läden.",
+      contactLabel: "Kontakt",
+      emailLabel: "E-Mail",
+      writeUs: "Schreibt uns →",
+      footer: "© 2026 KöTTBULLAR · Eigenverlag",
+      ticker: ["Limitiert auf 100 Exemplare", "Gelbes Vinyl", "Schwarze Einschlüsse", "Konzept-EP mit 5 Tracks",
+        "Keine zwei gleich", "Denial", "Anger", "Bargaining", "Depression", "Acceptance"]
+    };
+
+    (function () {
+      document.querySelectorAll(".lang a").forEach(function (a) {
+        if (a.getAttribute("data-lang") === LANG) a.setAttribute("aria-current", "true");
+      });
+      if (LANG !== "de") return;
+      document.documentElement.lang = "de";
+      document.title = DE.title;
+      document.querySelector('meta[name="description"]').setAttribute("content", DE.description);
+      document.querySelectorAll("[data-i18n]").forEach(function (el) {
+        var v = DE[el.getAttribute("data-i18n")]; if (v) el.innerHTML = v;
+      });
+      document.querySelectorAll("[data-i18n-alt]").forEach(function (el) {
+        var v = DE[el.getAttribute("data-i18n-alt")]; if (v) el.setAttribute("alt", v);
+      });
+      document.querySelectorAll("[data-i18n-aria-label]").forEach(function (el) {
+        var v = DE[el.getAttribute("data-i18n-aria-label")]; if (v) el.setAttribute("aria-label", v);
+      });
+    })();
+
     // Ticker text (duplicated so the CSS loop is seamless)
     (function () {
-      var words = ["Limited to 100 copies", "Yellow vinyl", "Black inclusions", "5-track concept EP",
+      var words = LANG === "de" ? DE.ticker : ["Limited to 100 copies", "Yellow vinyl", "Black inclusions", "5-track concept EP",
         "No two alike", "Denial", "Anger", "Bargaining", "Depression", "Acceptance"];
       var html = words.map(function (w) { return "<span>" + w + " ✱</span>"; }).join("");
       document.getElementById("ticker").innerHTML = html + html + html + html;
