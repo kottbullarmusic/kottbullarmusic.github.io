@@ -44,7 +44,7 @@ const COPY = {
                // Build-time injection from Bandsintown (see scripts/bundle_epk.py).
                // The literal between the markers is a fallback for offline builds.
                list: /*EPK_SHOWS_EN_BEGIN*/[
-                 { date: "25 Jul 2026", venue: "Kulturspektakel Gauting 2026", city: "Gauting, DE", note: "free entry" },
+                 { date: "11 Mar 2027", venue: "U4 Vienna", city: "Wien, AT", note: "" },
                ]/*EPK_SHOWS_EN_END*/ },
     contact: { label: "Booking & Contact",
                line1: "BOOK US.", line2: "PROMISE", line3: "IT'S LOUD.",
@@ -82,7 +82,7 @@ const COPY = {
                  "Sound, eigener Stimmung und eigenem emotionalen Gewicht." },
     shows:   { label: "Demnächst", heading: "SHOWS",
                list: /*EPK_SHOWS_DE_BEGIN*/[
-                 { date: "25. Juli 2026", venue: "Kulturspektakel Gauting 2026", city: "Gauting, DE", note: "Eintritt frei" },
+                 { date: "11. März 2027", venue: "U4 Vienna", city: "Wien, AT", note: "" },
                ]/*EPK_SHOWS_DE_END*/ },
     contact: { label: "Booking & Kontakt",
                line1: "BUCHT UNS.", line2: "VERSPROCHEN", line3: "ES WIRD LAUT.",
